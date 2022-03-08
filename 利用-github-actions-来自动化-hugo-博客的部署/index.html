@@ -1,263 +1,585 @@
-<!doctype html><html lang=zh-cn>
-<head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=robots content="noodp">
-<meta http-equiv=x-ua-compatible content="IE=edge, chrome=1">
-<title>利用 GitHub Actions 来自动化 Hugo 博客的部署 - </title><meta name=author content="wyxgoishin: https://wyxgoishin.github.io">
-<meta name=description content="本文简要介绍了如何利用 GitHub Actions 来自动化 Hugo 博客的部署。">
-<meta name=keywords content="Hugo,,GitHub,Actions"><meta itemprop=name content="利用 GitHub Actions 来自动化 Hugo 博客的部署">
-<meta itemprop=description content="本文简要介绍了如何利用 GitHub Actions 来自动化 Hugo 博客的部署。"><meta itemprop=datePublished content="2022-03-08T09:34:15+08:00">
-<meta itemprop=dateModified content="2022-03-08T08:56:19+00:00">
-<meta itemprop=wordCount content="2545"><meta itemprop=image content="https://wyxgoishin.github.io/logo.png">
-<meta itemprop=keywords content="Hugo,GitHub Actions,"><meta property="og:title" content="利用 GitHub Actions 来自动化 Hugo 博客的部署">
-<meta property="og:description" content="本文简要介绍了如何利用 GitHub Actions 来自动化 Hugo 博客的部署。">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://wyxgoishin.github.io/%E5%88%A9%E7%94%A8-github-actions-%E6%9D%A5%E8%87%AA%E5%8A%A8%E5%8C%96-hugo-%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%83%A8%E7%BD%B2/"><meta property="og:image" content="https://wyxgoishin.github.io/logo.png"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2022-03-08T09:34:15+08:00">
-<meta property="article:modified_time" content="2022-03-08T08:56:19+00:00">
-<meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://wyxgoishin.github.io/logo.png">
-<meta name=twitter:title content="利用 GitHub Actions 来自动化 Hugo 博客的部署">
-<meta name=twitter:description content="本文简要介绍了如何利用 GitHub Actions 来自动化 Hugo 博客的部署。">
-<meta name=application-name content="兴趣使然的无名小站">
-<meta name=apple-mobile-web-app-title content="兴趣使然的无名小站"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#252627"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://wyxgoishin.github.io/%E5%88%A9%E7%94%A8-github-actions-%E6%9D%A5%E8%87%AA%E5%8A%A8%E5%8C%96-hugo-%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%83%A8%E7%BD%B2/><link rel=stylesheet href=/lib/normalize/normalize.min.77404aa50bdc968c26098e2498be1ac46b23bfa8081babe46b883d24208df795.css integrity="sha256-d0BKpQvclowmCY4kmL4axGsjv6gIG6vka4g9JCCN95U="><link rel=stylesheet href=/css/style.min.c6e77772e50a6ac21a5413bdc928b84e81e8d5beaa54f4eccd2ee9cdd91849f8.css integrity="sha256-xud3cuUKasIaVBO9ySi4ToHo1b6qVPTszS7pzdkYSfg="><link rel=stylesheet href=/lib/fontawesome-free/all.min.14cbd9b866a9b092e3a2e03a93b128da5baca005fd8b44a1956146eaab7b48b7.css integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc="><link rel=stylesheet href=/lib/animate/animate.min.5fbaeb9f8e25d7e0143bae61d4b1802c16ce7390b96ceb2d498b0d96ff4c853f.css integrity="sha256-X7rrn44l1+AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8="><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"利用 GitHub Actions 来自动化 Hugo 博客的部署","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/wyxgoishin.github.io\/%E5%88%A9%E7%94%A8-github-actions-%E6%9D%A5%E8%87%AA%E5%8A%A8%E5%8C%96-hugo-%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%83%A8%E7%BD%B2\/"},"image":["https:\/\/wyxgoishin.github.io\/images\/Apple-Devices-Preview.png"],"genre":"posts","keywords":"Hugo, GitHub Actions","wordcount":2545,"url":"https:\/\/wyxgoishin.github.io\/%E5%88%A9%E7%94%A8-github-actions-%E6%9D%A5%E8%87%AA%E5%8A%A8%E5%8C%96-hugo-%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%83%A8%E7%BD%B2\/","datePublished":"2022-03-08T09:34:15+08:00","dateModified":"2022-03-08T08:56:19+00:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"Lruihao","logo":"https:\/\/wyxgoishin.github.io\/images\/avatar.png"},"author":{"@type":"Person","name":"wyxgoishin"},"description":"本文简要介绍了如何利用 GitHub Actions 来自动化 Hugo 博客的部署。"}</script></head><body header-desktop=sticky header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("theme","dark")</script>
-<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
-<div class=header-wrapper>
-<div class=header-title>
-<a href=/ title><img class="lazyload logo" src=/svg/loading.min.svg data-src=/images/cat-solid.svg data-srcset="/images/cat-solid.svg, /images/cat-solid.svg 1.5x, /images/cat-solid.svg 2x" data-sizes=auto alt=/images/cat-solid.svg title=/images/cat-solid.svg><span class=header-title-text>兴趣使然的无名小站</span></a><span class=header-subtitle></span></div><div class=menu>
-<div class=menu-inner><a class=menu-item href=/posts/> 所有文章 </a><a class=menu-item href=/tags/> 标签 </a><a class=menu-item href=/categories/> 分类 </a><a class=menu-item href=/about/> 关于 </a><a class=menu-item href=https://github.com/wyxgoishin title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i> </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
-<input type=text placeholder="搜索文章标题或内容 ..." id=search-input-desktop>
-<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索>
-<i class="fas fa-search fa-fw"></i>
-</a>
-<a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空>
-<i class="fas fa-times-circle fa-fw"></i>
-</a>
-<span class="search-button search-loading" id=search-loading-desktop>
-<i class="fas fa-spinner fa-fw fa-spin"></i>
-</span>
-</span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
-<i class="fas fa-adjust fa-fw"></i>
-</a>
-</div></div></div></header><header class=mobile id=header-mobile>
-<div class=header-container>
-<div class=header-wrapper>
-<div class=header-title>
-<a href=/ title><img class="lazyload logo" src=/svg/loading.min.svg data-src=/images/cat-solid.svg data-srcset="/images/cat-solid.svg, /images/cat-solid.svg 1.5x, /images/cat-solid.svg 2x" data-sizes=auto alt=/images/cat-solid.svg title=/images/cat-solid.svg><span class=header-title-text>兴趣使然的无名小站</span></a><span class=header-subtitle></span></div><div class=menu-toggle id=menu-toggle-mobile>
-<span></span><span></span><span></span>
-</div></div><div class=menu id=menu-mobile><div class=search-wrapper>
-<div class="search mobile" id=search-mobile>
-<input type=text placeholder="搜索文章标题或内容 ..." id=search-input-mobile>
-<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索>
-<i class="fas fa-search fa-fw"></i>
-</a>
-<a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空>
-<i class="fas fa-times-circle fa-fw"></i>
-</a>
-<span class="search-button search-loading" id=search-loading-mobile>
-<i class="fas fa-spinner fa-fw fa-spin"></i>
-</span>
-</div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>
-取消
-</a>
-</div><a class=menu-item href=/posts/ title>所有文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=/about/ title>关于</a><a class=menu-item href=https://github.com/wyxgoishin title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i></a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
-<i class="fas fa-adjust fa-fw"></i>
-</a></div></div></header><div class="search-dropdown desktop">
-<div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile">
-<div id=search-dropdown-mobile></div></div><main class=container page-style=normal><aside class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></aside><aside class=aside-custom>
-</aside><article class="page single"><h1 class="single-title animate__animated animate__flipInX">利用 GitHub Actions 来自动化 Hugo 博客的部署</h1><div class=post-meta>
-<div class=post-meta-line><span class=post-author><a href=https://wyxgoishin.github.io title=Author target=_blank rel="external nofollow noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>wyxgoishin</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/course/><i class="far fa-folder fa-fw"></i>教程</a></span></div><div class=post-meta-line><span title="2022-03-08 09:34:15">
-<i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2022-03-08>2022-03-08</time>
-</span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2545 字&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;</div></div><div class="details toc" id=toc-static kept=false>
-<div class="details-summary toc-title">
-<span>目录</span>
-<span><i class="details-icon fas fa-angle-right"></i></span>
-</div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
-<ul>
-<li><a href=#前置准备>前置准备</a>
-<ul>
-<li><a href=#go-和-git-的安装>Go 和 Git 的安装</a></li><li><a href=#hugo-的安装>Hugo 的安装</a></li></ul></li><li><a href=#搭建博客>搭建博客</a>
-<ul>
-<li><a href=#hugo-简单命令>Hugo 简单命令</a></li><li><a href=#引入-hugo-主题>引入 Hugo 主题</a></li></ul></li><li><a href=#github-配置>GitHub 配置</a>
-<ul>
-<li><a href=#创建并配置-github-工程仓库>创建并配置 GitHub 工程仓库</a></li><li><a href=#创建并配置-github-主页仓库>创建并配置 GitHub 主页仓库</a></li><li><a href=#创建并配置-github-actions>创建并配置 GitHub Actions</a></li></ul></li></ul></nav></div></div><div class=content id=content><h2 id=前置准备>前置准备</h2><p>在部署 <code>Hugo</code> 博客前，我们首先需要有一个 <code>Hugo</code> 博客，因此需要预先安装 <code>Hugo</code>、 <code>Go</code>（<code>Go</code> 是 <code>Hugo</code> 的运行依赖）和 <code>Git</code>（用于版本管理，你也可以选择其他 <code>SVN</code>）。</p><h3 id=go-和-git-的安装>Go 和 Git 的安装</h3><p><a href=https://golang.google.cn/ target=_blank rel="external nofollow noopener noreffer">Go官网 </a>和 <a href=https://git-scm.com/ target=_blank rel="external nofollow noopener noreffer">Git官网</a>下载安装包后一直点下一步即可。</p><h3 id=hugo-的安装>Hugo 的安装</h3><p><a href=https://github.com/gohugoio/hugo/releases target=_blank rel="external nofollow noopener noreffer">官方发布</a>处选择适合你电脑的版本下载，需要注意的是有些 <code>Hugo</code> 主题需要 <code>Hugo_extended</code> 才能使用。</p><p>对于 <code>Windows</code> 用户，下载下来的压缩包解压后仅包含 <code>License</code> 文件、<code>ReadMe</code> 和一个可执行文件。为了方便起见，我们可以将其所在的文件夹路径添加系统变量的 <code>Path</code> 变量中，这样即可直接在 <code>cmd</code> 中使用 <code>hugo xxx</code> 命令。</p><h2 id=搭建博客>搭建博客</h2><h3 id=hugo-简单命令>Hugo 简单命令</h3><p>首先介绍几个简单的 <code>Hugo</code> 命令，更多信息可参考<a href=https://www.gohugo.org/ target=_blank rel="external nofollow noopener noreffer">官方文档</a>。</p><ol>
-<li><code>hugo new site dst</code></li></ol><p>该命令会在 <code>dst</code> 处新建一个 <code>Hugo</code> 博客工程文件，<code>dst</code> 为 <code>.</code> 时则会在当前路径新建。需要注意的是，当 <code>dst</code> 对应路径的文件夹已存在，<code>Hugo</code> 会报错并提示你在命令中增加 <code>-force</code> 参数来强制创建，此时按照提示添加即可创建成功。新建的 <code>Hugo</code> 博客工程文件夹下应该类似下图：</p><div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span></code></pre></td><td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>刚完成配置的Hugo文件夹
-</span></span><span class=line><span class=cl>├── config.toml 总配置文件，可以在里面更改各类配置
-</span></span><span class=line><span class=cl>├── archetypes 文章原型
-</span></span><span class=line><span class=cl>│   └── default.md 
-</span></span><span class=line><span class=cl>├── content 存放文章内容的文件夹
-</span></span><span class=line><span class=cl>├── data 
-</span></span><span class=line><span class=cl>├── layouts 布局相关文件
-</span></span><span class=line><span class=cl>├── static 用于存放你在 content 中的文章会用到的图片等资料
-</span></span><span class=line><span class=cl>├── public 渲染出来的文章会放在该文件夹下
-</span></span><span class=line><span class=cl>└── themes 用于存放 Hugo 的主题
-</span></span></code></pre></td></tr></table></div></div><ol start=2>
-<li><code>hugo new dst</code></li></ol><p>该命令会在 <code>content</code> 文件夹下创建 <code>dst</code> 文章，一般该文件应当以 <code>.md</code> 结尾，同时根据语言类型在正式文件名和后缀名间加上语言代号以方便后期管理，例如 <code>post.zh-cn.md</code>。<code>dst</code> 也可以是多级相对路径，例如 <code>posts/post_1.zh-cn.md</code>，此时会在 <code>content/posts</code> 路径下创建 <code>post_1.zh-cn.md</code>。</p><ol start=3>
-<li><code>hugo server -D</code></li></ol><p>该命令会启动服务器，并使你能在本地预览 <code>Hugo</code> 博客，预览地址默认为 <code>localhost:1313</code>。</p><ol start=4>
-<li><code>hugo</code></li></ol><p>该命令会在 <code>public</code> 文件夹下生成可部署的静态网页文件。</p><h3 id=引入-hugo-主题>引入 Hugo 主题</h3><p>假设你已经搭建了一个 <code>Hugo</code> 博客工程文件，现在我们可以引入 <code>Hugo</code> 主题来简化后续网站的风格搭建工作（<del>当然你是大佬或者你想自己配置风格除外</del>）。<code>Hugo</code> 主题可以在<a href=https://themes.gohugo.io/ target=_blank rel="external nofollow noopener noreffer">这个网站</a>找到，你可以在其中挑选一个你喜欢的，我这里使用的是 <a href=https://github.com/Lruihao/FixIt target=_blank rel="external nofollow noopener noreffer">FixIt</a>，同时也推荐几个个人认为比较适合的主题：<a href=https://github.com/chipzoller/hugo-clarity target=_blank rel="external nofollow noopener noreffer">Clarity</a>、<a href=https://github.com/olOwOlo/hugo-theme-even target=_blank rel="external nofollow noopener noreffer">Even</a>、<a href=https://github.com/reuixiy/hugo-theme-meme target=_blank rel="external nofollow noopener noreffer">Meme</a>、<a href=https://github.com/parsiya/Hugo-Octopress target=_blank rel="external nofollow noopener noreffer">Octopress</a>。</p><p>当你挑选好主题后，你可以直接将其克隆到你的 <code>themes</code> 文件下，或者初始化你的项目为 <code>git</code> 仓库，并且把主题仓库作为你的网站目录的子模块。</p><div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>git init
-</span></span><span class=line><span class=cl>git submodule add https://github.com/Lruihao/FixIt.git themes/FixIt
-</span></span></code></pre></td></tr></table></div></div><p>由于后续我们希望使用 <code>Github Action</code> 来便捷部署 <code>Hugo</code> 博客，因此这里需要使用第二种方法。下载完主题后，你应当根据主题中的 <code>ReadMe</code> 或相关文档配置你的 <code>config.toml</code> 文件，另外为了后续部署，你应当将你的主题作为一个子模块挂载到你的博客并修改 <code>baseURL</code>，具体来说是应当在你的 <code>config.toml</code> 文件中添加修改：</p><div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-toml data-lang=toml><span class=line><span class=cl><span class=nx>baseURL</span> <span class=p>=</span> <span class=s2>&#34;xxx&#34;</span> <span class=c># 后续你的博客的地址</span>
-</span></span><span class=line><span class=cl><span class=p>[</span><span class=nx>module</span><span class=p>]</span>
-</span></span><span class=line><span class=cl><span class=p>[[</span><span class=nx>module</span><span class=p>.</span><span class=nx>imports</span><span class=p>]]</span>
-</span></span><span class=line><span class=cl>  <span class=c># xxx 为 themes 文件下你的主题文件夹的名称</span>
-</span></span><span class=line><span class=cl>  <span class=nx>path</span> <span class=p>=</span> <span class=s1>&#39;xxx&#39;</span>
-</span></span></code></pre></td></tr></table></div></div><p>另外需要注意的是，如果该行配置应当写在 <code>theme=xxx</code> 配置前，同时如果该行写在 <code>defaultContentLanguage=xxx</code> 前，则会使得<code>defaultContentLanguage=xxx</code>配置失效而导致一些莫名其妙的错误。</p><h2 id=github-配置>GitHub 配置</h2><p>首先说说我们自动化部署的最终目的，即希望在本地预览无误后，直接推送工程文件到 <code>Github</code> 的某个工程仓库后，我们的主页仓库（即<code>https://github.com/xxx/xxx.github.io</code> ）就会自动更新，使得访问 <code>xxx.github.io</code> 或者你配置的域名时得到的就是更新的内容，而不用每次手动将工程文件下的<code>public</code> 文件夹 <code>push</code> 到我们的主页仓库。</p><p>为此我们需要使用 <code>Github Actions</code> 来完成这一过程，它可以监听围绕代码仓库管理的各种事件，比如 <code>push</code> 和 <code>pull_request</code> 事件，触发提前计划好的一系列步骤，即工作流。这些步骤用 <code>YAML </code>文档记录。触发工作流包括了构建和测试。这些工作流可以在 <code>GitHub</code> 的服务器上执行，开发者也可以在自己的服务器响应从 <code>GitHub</code> 触发的事件来执行工作流。</p><h3 id=创建并配置-github-工程仓库>创建并配置 GitHub 工程仓库</h3><p>首先创建一个私有的 <code>Github</code> 仓库用于存储工程文件，而后在该仓库页 <code>setting -> Secrets -> Actions</code> 下通过 <code>new repository secret</code> 创建一个新的动作密钥，并且注意<strong>一定要勾选</strong> <code>Allow write access</code>。密钥可以采用 <code>ssh-keygen</code> 命令生成密钥对，并将私钥填入，下面是参考密钥对生成代码。另外并假设这里你创建的动作密钥名称为 <code>ACTIONS_DEPLOY_KEY</code>。</p><div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td><td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ssh-keygen -t rsa -b <span class=m>4096</span> -C <span class=s2>&#34;</span><span class=k>$(</span>git config user.email<span class=k>)</span><span class=s2>&#34;</span> -f gh-pages -N <span class=s2>&#34;&#34;</span>
-</span></span><span class=line><span class=cl><span class=c1># You will get 2 files:</span>
-</span></span><span class=line><span class=cl><span class=c1>#   gh-pages.pub (public key)</span>
-</span></span><span class=line><span class=cl><span class=c1>#   gh-pages     (private key)</span>
-</span></span></code></pre></td></tr></table></div></div><h3 id=创建并配置-github-主页仓库>创建并配置 GitHub 主页仓库</h3><p>而后创建你的主页仓库，它应当是公开的，同时其仓库名应当是 <code>xxx.github.io</code>，其中 <code>xxx</code> 为你的 <code>Github</code> 用户名。在该仓库页 <code>setting -> Pages</code> 你可以看到你的 <code>Github Page</code> 地址，同时下面的 <code>Custom Domain</code> 可以用以自定义地址的域名（你需要先购买一个并配好相关设置）。然后在 <code>Deploy keys -> Add deploy key</code> 中添加对应的部署密钥，其值为先前 <code>ssh-keygen</code> 生成的公钥。</p><h3 id=创建并配置-github-actions>创建并配置 GitHub Actions</h3><p>在工程仓库对应的本地文件夹下，创建<code>.github/workflows/github-pages.yml</code> 文件，文件名你可以自定义，然后修改文件内容如下：</p><div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span><span class=lnt>35
-</span><span class=lnt>36
-</span><span class=lnt>37
-</span><span class=lnt>38
-</span><span class=lnt>39
-</span><span class=lnt>40
-</span><span class=lnt>41
-</span><span class=lnt>42
-</span><span class=lnt>43
-</span><span class=lnt>44
-</span><span class=lnt>45
-</span><span class=lnt>46
-</span></code></pre></td><td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-yml data-lang=yml><span class=line><span class=cl><span class=c># This is a basic workflow to help you get started with Actions</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Github Pages</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=c># Controls when the workflow will run</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>on</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=c># Triggers the workflow on push or pull request events but only for the main branch</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>push</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>branches</span><span class=p>:</span><span class=w> </span><span class=p>[</span><span class=w> </span><span class=l>master ]</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>pull_request</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>branches</span><span class=p>:</span><span class=w> 
-</span></span></span><span class=line><span class=cl><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=c># Allows you to run this workflow manually from the Actions tab</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>workflow_dispatch</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=c># A workflow run is made up of one or more jobs that can run sequentially or in parallel</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>jobs</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=c># This workflow contains a single job called &#34;build&#34;</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>build</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c># The type of runner that the job will run on</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>runs-on</span><span class=p>:</span><span class=w> </span><span class=l>ubuntu-latest</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c># Steps represent a sequence of tasks that will be executed as part of the job</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>steps</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=c># Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>actions/checkout@v2</span><span class=w> </span><span class=c># 后续版本可能有更新，请选择合适的版本</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>submodules</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w> </span><span class=c># 根据你是否添加子模块而定</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>fetch-depth</span><span class=p>:</span><span class=w> </span><span class=m>0</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Setup Hugo</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>peaceiris/actions-hugo@v2</span><span class=w> </span><span class=c># 后续版本可能有更新，请选择合适的版本</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>hugo-version</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;0.93.2&#39;</span><span class=w> </span><span class=c># 根据你的 Hugo 版本而定</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>extended</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w> </span><span class=c># 根据你的 Hugo 版本而定</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>          
-</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Build</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>run</span><span class=p>:</span><span class=w> </span><span class=l>hugo --minify</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>        
-</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Deploy</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>peaceiris/actions-gh-pages@v3</span><span class=w> </span><span class=c># 后续版本可能有更新，请选择合适的版本</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>DEPLOY_KEY</span><span class=p>:</span><span class=w> </span><span class=l>${{ secrets.ACTIONS_DEPLOY_KEY }}</span><span class=w> </span><span class=c># 这里对应上面创建的动作密钥名称</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>EXTERNAL_REPOSITORY</span><span class=p>:</span><span class=w> </span><span class=l>xxx/xxx.github.io</span><span class=w> </span><span class=c># 部署的主页仓库</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>PUBLISH_BRANCH</span><span class=p>:</span><span class=w> </span><span class=l>master</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>PUBLISH_DIR</span><span class=p>:</span><span class=w> </span><span class=l>./public</span><span class=w>
-</span></span></span></code></pre></td></tr></table></div></div><p>而后通过 <code>git</code> 或其他工具将该工程项目 <code>push</code> 到 对应<code>GitHub</code> 仓库中，等待一小段时间再次访问 <code>xxx.github.io</code>，即会发现对应的网页已经自动发生修改。如果发生错误，你会收到一封通知邮件，你可以通过 <code>Actions</code> 进入对应的 <code>workflow</code> 查找错误原因，并自行 <code>debug </code> 或通过 <a href=https://www.google.com/ target=_blank rel="external nofollow noopener noreffer">谷歌</a> 和 <a href=www.baidu.com>百度</a> 搜索相关经验。后续我们要对博客进行修改，也只需要修改工程文件然后 <code>push</code> 即可。</p></div><div class=post-footer id=post-footer>
-<div class=post-info>
-<div class=post-info-line>
-<div class=post-info-mod>
-<span title="2022-03-08 08:56:19">更新于 2022-03-08</span>
-</div><div class=post-info-license></div></div><div class=post-info-line>
-<div class=post-info-md></div><div class=post-info-share>
-<span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://wyxgoishin.github.io/%E5%88%A9%E7%94%A8-github-actions-%E6%9D%A5%E8%87%AA%E5%8A%A8%E5%8C%96-hugo-%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%83%A8%E7%BD%B2/ data-title="利用 GitHub Actions 来自动化 Hugo 博客的部署" data-hashtags="Hugo,GitHub Actions"><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://wyxgoishin.github.io/%E5%88%A9%E7%94%A8-github-actions-%E6%9D%A5%E8%87%AA%E5%8A%A8%E5%8C%96-hugo-%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%83%A8%E7%BD%B2/ data-title="利用 GitHub Actions 来自动化 Hugo 博客的部署"><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Reddit" data-sharer=reddit data-url=https://wyxgoishin.github.io/%E5%88%A9%E7%94%A8-github-actions-%E6%9D%A5%E8%87%AA%E5%8A%A8%E5%8C%96-hugo-%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%83%A8%E7%BD%B2/><i class="fab fa-reddit fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://wyxgoishin.github.io/%E5%88%A9%E7%94%A8-github-actions-%E6%9D%A5%E8%87%AA%E5%8A%A8%E5%8C%96-hugo-%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%83%A8%E7%BD%B2/ data-title="利用 GitHub Actions 来自动化 Hugo 博客的部署"><i data-svg-src=/lib/simple-icons/icons/line.min.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://wyxgoishin.github.io/%E5%88%A9%E7%94%A8-github-actions-%E6%9D%A5%E8%87%AA%E5%8A%A8%E5%8C%96-hugo-%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%83%A8%E7%BD%B2/ data-title="利用 GitHub Actions 来自动化 Hugo 博客的部署"><i class="fab fa-weibo fa-fw"></i></a></span>
-</div></div></div><div class=post-info-more>
-<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/hugo/>Hugo</a>,&nbsp;<a href=/tags/github-actions/>GitHub Actions</a></section><section>
-<span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span>
-</section></div><div class=post-nav></div></div></article></main><footer class=footer>
-<div class=footer-container><div class="footer-line powered">由 <a href=https://gohugo.io/ target=_blank rel="external nofollow noopener noreffer" title="Hugo 0.93.2">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/Lruihao/FixIt target=_blank rel="external nofollow noopener noreffer" title="FixIt 0.2.13"><img class=fixit-icon src=/images/fixit.svg alt="FixIt logo"> FixIt</a>
-</div><div class="footer-line copyright"><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2022</span><span class=footer-divider></span><span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div><div class="footer-line ibruce">
-<span id=busuanzi_container_site_uv title=总访客数><i class="far fa-user"></i>
-<span id=busuanzi_value_site_uv><i class="fa fa-spinner fa-spin"></i></span></span><span class="site-time footer-divider" title="网站运行中 ..."><i class="fas fa-heartbeat animate-icon"></i>
-<span class=run-times>Loading...</span></span><span id=busuanzi_container_site_pv class=footer-divider title=总访问量><i class="far fa-eye"></i>
-<span id=busuanzi_value_site_pv><i class="fa fa-spinner fa-spin"></i></span></span>
-</div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部>
-<i class="fas fa-arrow-up fa-fw"></i>
-</a><a href=# id=view-comments class=fixed-button title=查看评论>
-<i class="fas fa-comment fa-fw"></i>
-</a>
-</div><link rel=stylesheet href=/lib/katex/katex.min.f7f9a1410c24a54e6890f7cce65d2fdcb9cff71b5ce892bc74a5b4fd69466947.css integrity="sha256-9/mhQQwkpU5okPfM5l0v3LnP9xtc6JK8dKW0/WlGaUc="><link rel=stylesheet href=/lib/katex/copy-tex.min.fa822dbe23da4e6aa30e1938cb87cb2d420c8114180d5fd9cab44dbd089e6d63.css integrity="sha256-+oItviPaTmqjDhk4y4fLLUIMgRQYDV/ZyrRNvQiebWM="><link rel=stylesheet href=/lib/cookieconsent/cookieconsent.min.cd0d0b6e50ff01ff2f3a9a70d7cfb66a7c6cb9acf7a566325568be6d3bd31fc4.css integrity="sha256-zQ0LblD/Af8vOppw18+2anxsuaz3pWYyVWi+bTvTH8Q="><script type=text/javascript src=/lib/autocomplete/autocomplete.min.ae2da1bd62c6469ee27770ad1cddf2e8296d8a7f6d85b091463e5200c5e320af.js integrity="sha256-ri2hvWLGRp7id3CtHN3y6Cltin9thbCRRj5SAMXjIK8=" defer></script><script type=text/javascript src=/lib/algoliasearch/algoliasearch-lite.umd.min.17f7126c772e27c099f01e7925f8a1625dd010e3e76d80dee31391b8486950a6.js integrity="sha256-F/cSbHcuJ8CZ8B55JfihYl3QEOPnbYDe4xORuEhpUKY=" defer></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.3d9120fa621da6d613c1698b7014ec6bdf4620366e8f2b7b547059f4b6f6272b.js integrity="sha256-PZEg+mIdptYTwWmLcBTsa99GIDZujyt7VHBZ9Lb2Jys=" async defer></script><script type=text/javascript src=/lib/clipboard/clipboard.min.11be927cda59c8b6019ebbea838285c5beaf21183ea4b83dbd4e4fbf9413ce4a.js integrity="sha256-Eb6SfNpZyLYBnrvqg4KFxb6vIRg+pLg9vU5Pv5QTzko=" defer></script><script type=text/javascript src=/lib/sharer/sharer.min.8fe10eb615eb163a20f795484430a012805ec7c8c11df52df54ddb7a46084254.js integrity="sha256-j+EOthXrFjog95VIRDCgEoBex8jBHfUt9U3bekYIQlQ=" async defer></script><script type=text/javascript src=/lib/katex/katex.min.717438b6c96d3b38a74b1a4daa73e574075fa6cb483d70432a28556fb71c64bd.js integrity="sha256-cXQ4tsltOzinSxpNqnPldAdfpstIPXBDKihVb7ccZL0=" defer></script><script type=text/javascript src=/lib/katex/auto-render.min.cb7f4ca60ed5dc3e258415f8c7a3b46d4a93578a52adf83011f18a7f190e7602.js integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI=" defer></script><script type=text/javascript src=/lib/katex/copy-tex.min.7ad4aa6d2545e3e2f07bc30693f55a9dcd6c47e996bfea8e1bbddfc56c3da7de.js integrity="sha256-etSqbSVF4+Lwe8MGk/Vanc1sR+mWv+qOG73fxWw9p94=" defer></script><script type=text/javascript src=/lib/katex/mhchem.min.5cea356d6025c5a2f18c454c83ec5674dbb04fab1cd1d75569e77788c6b6f888.js integrity="sha256-XOo1bWAlxaLxjEVMg+xWdNuwT6sc0ddVaed3iMa2+Ig=" defer></script><script type=text/javascript src=/lib/cookieconsent/cookieconsent.min.e55842a856a6d829feca3c3ad736c136b6c7549e9247274f78aa296259e06e24.js integrity="sha256-5VhCqFam2Cn+yjw61zbBNrbHVJ6SRydPeKopYlngbiQ=" defer></script><script type=text/javascript src=/lib/pangu/pangu.min.8feca3e7a71d118d82c2456d1b2cf5f1f3726c51a930627c2711b7192c8edbe2.js integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" defer></script><script type=text/javascript src=/lib/cell-watermark/watermark.min.8518c89a43d8bcbcf981bbd3d6364ce91a5142b15e0e584e2a39dc36661d6b13.js integrity="sha256-hRjImkPYvLz5gbvT1jZM6RpRQrFeDlhOKjncNmYdaxM=" defer></script><script type=text/javascript src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js async defer></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",editLockTitle:"锁定可编辑代码块",editUnLockTitle:"解锁可编辑代码块",editable:!0,maxShownLines:10},comment:{},cookieconsent:{content:{dismiss:"同意",link:"了解更多",message:"本网站使用 Cookies 来改善您的浏览体验."},enable:!0,palette:{button:{background:"#f0f0f0"},popup:{background:"#1aa3ff"}},theme:"edgeless"},enablePWA:!0,enablePangu:!0,ibruce:{enable:!0,siteTime:"2022-03-08T00:00:00+08:00"},math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},search:{algoliaAppID:"85AJU4PL9U",algoliaIndex:"index.zh-cn",algoliaSearchKey:"d0788fa68b24a919c3ffffd207d35c57",highlightTag:"em",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50,type:"algolia"},watermark:{content:'\u003cimg class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" /\u003e FixIt 主题',enable:!0,height:21,opacity:.02}}</script><script type=text/javascript src=/js/theme.min.ac2bd145af726c9602ad02fe43bea4033361de2638eac7be582abc53ea81a7a6.js integrity="sha256-rCvRRa9ybJYCrQL+Q76kAzNh3iY46se+WCq8U+qBp6Y=" defer></script><script type=text/javascript src=/js/_custom.min.e93e33f14a5dcc830fb198f3098f714031935beb5e25a76ca5c97099cd46842d.js integrity="sha256-6T4z8UpdzIMPsZjzCY9xQDGTW+teJadspclwmc1GhC0=" defer></script></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <title>利用 GitHub Actions 来自动化 Hugo 博客的部署 - </title><meta name="author" content="wyxgoishin: https://wyxgoishin.github.io">
+<meta name="description" content="本文简要介绍了如何利用 GitHub Actions 来自动化 Hugo 博客的部署。" />
+<meta name="keywords" content="Hugo,,GitHub,Actions" /><meta itemprop="name" content="利用 GitHub Actions 来自动化 Hugo 博客的部署">
+<meta itemprop="description" content="本文简要介绍了如何利用 GitHub Actions 来自动化 Hugo 博客的部署。"><meta itemprop="datePublished" content="2022-03-08T09:34:15+08:00" />
+<meta itemprop="dateModified" content="2022-03-08T09:18:48+00:00" />
+<meta itemprop="wordCount" content="2545"><meta itemprop="image" content="https://wyxgoishin.github.io/logo.png"/>
+<meta itemprop="keywords" content="Hugo,GitHub Actions," /><meta property="og:title" content="利用 GitHub Actions 来自动化 Hugo 博客的部署" />
+<meta property="og:description" content="本文简要介绍了如何利用 GitHub Actions 来自动化 Hugo 博客的部署。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wyxgoishin.github.io/%E5%88%A9%E7%94%A8-github-actions-%E6%9D%A5%E8%87%AA%E5%8A%A8%E5%8C%96-hugo-%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%83%A8%E7%BD%B2/" /><meta property="og:image" content="https://wyxgoishin.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-03-08T09:34:15+08:00" />
+<meta property="article:modified_time" content="2022-03-08T09:18:48+00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://wyxgoishin.github.io/logo.png"/>
+
+<meta name="twitter:title" content="利用 GitHub Actions 来自动化 Hugo 博客的部署"/>
+<meta name="twitter:description" content="本文简要介绍了如何利用 GitHub Actions 来自动化 Hugo 博客的部署。"/>
+<meta name="application-name" content="兴趣使然的无名小站">
+<meta name="apple-mobile-web-app-title" content="兴趣使然的无名小站"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://wyxgoishin.github.io/%E5%88%A9%E7%94%A8-github-actions-%E6%9D%A5%E8%87%AA%E5%8A%A8%E5%8C%96-hugo-%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%83%A8%E7%BD%B2/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.77404aa50bdc968c26098e2498be1ac46b23bfa8081babe46b883d24208df795.css" integrity="sha256-d0BKpQvclowmCY4kmL4axGsjv6gIG6vka4g9JCCN95U="><link rel="stylesheet" href="/css/style.min.c6e77772e50a6ac21a5413bdc928b84e81e8d5beaa54f4eccd2ee9cdd91849f8.css" integrity="sha256-xud3cuUKasIaVBO9ySi4ToHo1b6qVPTszS7pzdkYSfg="><link rel="stylesheet" href="/lib/fontawesome-free/all.min.14cbd9b866a9b092e3a2e03a93b128da5baca005fd8b44a1956146eaab7b48b7.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc="><link rel="stylesheet" href="/lib/animate/animate.min.5fbaeb9f8e25d7e0143bae61d4b1802c16ce7390b96ceb2d498b0d96ff4c853f.css" integrity="sha256-X7rrn44l1&#43;AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8="><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "利用 GitHub Actions 来自动化 Hugo 博客的部署",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/wyxgoishin.github.io\/%E5%88%A9%E7%94%A8-github-actions-%E6%9D%A5%E8%87%AA%E5%8A%A8%E5%8C%96-hugo-%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%83%A8%E7%BD%B2\/"
+    },"image": ["https:\/\/wyxgoishin.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Hugo, GitHub Actions","wordcount":  2545 ,
+    "url": "https:\/\/wyxgoishin.github.io\/%E5%88%A9%E7%94%A8-github-actions-%E6%9D%A5%E8%87%AA%E5%8A%A8%E5%8C%96-hugo-%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%83%A8%E7%BD%B2\/","datePublished": "2022-03-08T09:34:15+08:00","dateModified": "2022-03-08T09:18:48+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+      "@type": "Organization",
+      "name": "Lruihao","logo": "https:\/\/wyxgoishin.github.io\/images\/avatar.png"},"author": {
+        "@type": "Person",
+        "name": "wyxgoishin"
+      },"description": "本文简要介绍了如何利用 GitHub Actions 来自动化 Hugo 博客的部署。"
+  }
+  </script></head>
+  <body header-desktop="sticky" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title=""><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/images/cat-solid.svg"
+    data-srcset="/images/cat-solid.svg, /images/cat-solid.svg 1.5x, /images/cat-solid.svg 2x"
+    data-sizes="auto"
+    alt="/images/cat-solid.svg"
+    title="/images/cat-solid.svg" /><span class="header-title-text">兴趣使然的无名小站</span></a><span class="header-subtitle"></span></div>
+    <div class="menu">
+      <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/wyxgoishin" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+          <i class="fas fa-adjust fa-fw"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</header><header class="mobile" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title=""><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/images/cat-solid.svg"
+    data-srcset="/images/cat-solid.svg, /images/cat-solid.svg 1.5x, /images/cat-solid.svg 2x"
+    data-sizes="auto"
+    alt="/images/cat-solid.svg"
+    title="/images/cat-solid.svg" /><span class="header-title-text">兴趣使然的无名小站</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="menu" id="menu-mobile"><div class="search-wrapper">
+          <div class="search mobile" id="search-mobile">
+            <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-mobile">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-mobile">
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </div>
+          <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+            取消
+          </a>
+        </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/wyxgoishin" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+        <i class="fas fa-adjust fa-fw"></i>
+      </a></div>
+  </div>
+</header>
+<div class="search-dropdown desktop">
+  <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+  <div id="search-dropdown-mobile"></div>
+</div>
+<main class="container" page-style="normal"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录</h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    
+  </aside>
+
+  <article class="page single"><h1 class="single-title animate__animated animate__flipInX">利用 GitHub Actions 来自动化 Hugo 博客的部署</h1><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a
+  href="https://wyxgoishin.github.io"
+  
+    title="Author"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer author"
+  
+  
+  
+    class=" author"
+  
+  
+><i class="fas fa-user-circle fa-fw"></i>wyxgoishin</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/course/"><i class="far fa-folder fa-fw"></i>教程</a></span></div>
+      <div class="post-meta-line"><span title=2022-03-08&#32;09:34:15>
+            <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-08" >2022-03-08</time>
+          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2545 字&nbsp;
+        <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;</div>
+    </div><div class="details toc" id="toc-static" kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fas fa-angle-right"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#前置准备">前置准备</a>
+      <ul>
+        <li><a href="#go-和-git-的安装">Go 和 Git 的安装</a></li>
+        <li><a href="#hugo-的安装">Hugo 的安装</a></li>
+      </ul>
+    </li>
+    <li><a href="#搭建博客">搭建博客</a>
+      <ul>
+        <li><a href="#hugo-简单命令">Hugo 简单命令</a></li>
+        <li><a href="#引入-hugo-主题">引入 Hugo 主题</a></li>
+      </ul>
+    </li>
+    <li><a href="#github-配置">GitHub 配置</a>
+      <ul>
+        <li><a href="#创建并配置-github-工程仓库">创建并配置 GitHub 工程仓库</a></li>
+        <li><a href="#创建并配置-github-主页仓库">创建并配置 GitHub 主页仓库</a></li>
+        <li><a href="#创建并配置-github-actions">创建并配置 GitHub Actions</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h2 id="前置准备">前置准备</h2>
+<p>在部署 <code>Hugo</code> 博客前，我们首先需要有一个 <code>Hugo</code> 博客，因此需要预先安装 <code>Hugo</code>、 <code>Go</code>（<code>Go</code> 是 <code>Hugo</code> 的运行依赖）和 <code>Git</code>（用于版本管理，你也可以选择其他 <code>SVN</code>）。</p>
+<h3 id="go-和-git-的安装">Go 和 Git 的安装</h3>
+<p><a
+  href="https://golang.google.cn/"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Go官网 </a>和 <a
+  href="https://git-scm.com/"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Git官网</a>下载安装包后一直点下一步即可。</p>
+<h3 id="hugo-的安装">Hugo 的安装</h3>
+<p><a
+  href="https://github.com/gohugoio/hugo/releases"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>官方发布</a>处选择适合你电脑的版本下载，需要注意的是有些 <code>Hugo</code> 主题需要 <code>Hugo_extended</code> 才能使用。</p>
+<p>对于 <code>Windows</code> 用户，下载下来的压缩包解压后仅包含 <code>License</code> 文件、<code>ReadMe</code> 和一个可执行文件。为了方便起见，我们可以将其所在的文件夹路径添加系统变量的 <code>Path</code> 变量中，这样即可直接在 <code>cmd</code> 中使用 <code>hugo xxx</code> 命令。</p>
+<h2 id="搭建博客">搭建博客</h2>
+<h3 id="hugo-简单命令">Hugo 简单命令</h3>
+<p>首先介绍几个简单的 <code>Hugo</code> 命令，更多信息可参考<a
+  href="https://www.gohugo.org/"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>官方文档</a>。</p>
+<ol>
+<li><code>hugo new site dst</code></li>
+</ol>
+<p>该命令会在 <code>dst</code> 处新建一个 <code>Hugo</code> 博客工程文件，<code>dst</code> 为 <code>.</code> 时则会在当前路径新建。需要注意的是，当 <code>dst</code> 对应路径的文件夹已存在，<code>Hugo</code> 会报错并提示你在命令中增加 <code>-force</code> 参数来强制创建，此时按照提示添加即可创建成功。新建的 <code>Hugo</code> 博客工程文件夹下应该类似下图：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">刚完成配置的Hugo文件夹
+</span></span><span class="line"><span class="cl">├── config.toml 总配置文件，可以在里面更改各类配置
+</span></span><span class="line"><span class="cl">├── archetypes 文章原型
+</span></span><span class="line"><span class="cl">│   └── default.md 
+</span></span><span class="line"><span class="cl">├── content 存放文章内容的文件夹
+</span></span><span class="line"><span class="cl">├── data 
+</span></span><span class="line"><span class="cl">├── layouts 布局相关文件
+</span></span><span class="line"><span class="cl">├── static 用于存放你在 content 中的文章会用到的图片等资料
+</span></span><span class="line"><span class="cl">├── public 渲染出来的文章会放在该文件夹下
+</span></span><span class="line"><span class="cl">└── themes 用于存放 Hugo 的主题
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li><code>hugo new dst</code></li>
+</ol>
+<p>该命令会在 <code>content</code> 文件夹下创建 <code>dst</code> 文章，一般该文件应当以 <code>.md</code> 结尾，同时根据语言类型在正式文件名和后缀名间加上语言代号以方便后期管理，例如 <code>post.zh-cn.md</code>。<code>dst</code> 也可以是多级相对路径，例如 <code>posts/post_1.zh-cn.md</code>，此时会在 <code>content/posts</code> 路径下创建 <code>post_1.zh-cn.md</code>。</p>
+<ol start="3">
+<li><code>hugo server -D</code></li>
+</ol>
+<p>该命令会启动服务器，并使你能在本地预览 <code>Hugo</code> 博客，预览地址默认为 <code>localhost:1313</code>。</p>
+<ol start="4">
+<li><code>hugo</code></li>
+</ol>
+<p>该命令会在 <code>public</code> 文件夹下生成可部署的静态网页文件。</p>
+<h3 id="引入-hugo-主题">引入 Hugo 主题</h3>
+<p>假设你已经搭建了一个 <code>Hugo</code> 博客工程文件，现在我们可以引入 <code>Hugo</code> 主题来简化后续网站的风格搭建工作（<del>当然你是大佬或者你想自己配置风格除外</del>）。<code>Hugo</code> 主题可以在<a
+  href="https://themes.gohugo.io/"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>这个网站</a>找到，你可以在其中挑选一个你喜欢的，我这里使用的是 <a
+  href="https://github.com/Lruihao/FixIt"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>FixIt</a>，同时也推荐几个个人认为比较适合的主题：<a
+  href="https://github.com/chipzoller/hugo-clarity"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Clarity</a>、<a
+  href="https://github.com/olOwOlo/hugo-theme-even"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Even</a>、<a
+  href="https://github.com/reuixiy/hugo-theme-meme"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Meme</a>、<a
+  href="https://github.com/parsiya/Hugo-Octopress"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Octopress</a>。</p>
+<p>当你挑选好主题后，你可以直接将其克隆到你的 <code>themes</code> 文件下，或者初始化你的项目为 <code>git</code> 仓库，并且把主题仓库作为你的网站目录的子模块。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git init
+</span></span><span class="line"><span class="cl">git submodule add https://github.com/Lruihao/FixIt.git themes/FixIt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>由于后续我们希望使用 <code>Github Action</code> 来便捷部署 <code>Hugo</code> 博客，因此这里需要使用第二种方法。下载完主题后，你应当根据主题中的 <code>ReadMe</code> 或相关文档配置你的 <code>config.toml</code> 文件，另外为了后续部署，你应当将你的主题作为一个子模块挂载到你的博客并修改 <code>baseURL</code>，具体来说是应当在你的 <code>config.toml</code> 文件中添加修改：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">baseURL</span> <span class="p">=</span> <span class="s2">&#34;xxx&#34;</span> <span class="c"># 后续你的博客的地址</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">module</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">[[</span><span class="nx">module</span><span class="p">.</span><span class="nx">imports</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl">  <span class="c"># xxx 为 themes 文件下你的主题文件夹的名称</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">path</span> <span class="p">=</span> <span class="s1">&#39;xxx&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>另外需要注意的是，如果该行配置应当写在 <code>theme=xxx</code> 配置前，同时如果该行写在 <code>defaultContentLanguage=xxx</code> 前，则会使得<code>defaultContentLanguage=xxx</code>配置失效而导致一些莫名其妙的错误。</p>
+<h2 id="github-配置">GitHub 配置</h2>
+<p>首先说说我们自动化部署的最终目的，即希望在本地预览无误后，直接推送工程文件到 <code>Github</code> 的某个工程仓库后，我们的主页仓库（即<code>https://github.com/xxx/xxx.github.io</code> ）就会自动更新，使得访问 <code>xxx.github.io</code> 或者你配置的域名时得到的就是更新的内容，而不用每次手动将工程文件下的<code>public</code> 文件夹 <code>push</code> 到我们的主页仓库。</p>
+<p>为此我们需要使用 <code>Github Actions</code> 来完成这一过程，它可以监听围绕代码仓库管理的各种事件，比如 <code>push</code> 和 <code>pull_request</code> 事件，触发提前计划好的一系列步骤，即工作流。这些步骤用 <code>YAML </code>文档记录。触发工作流包括了构建和测试。这些工作流可以在 <code>GitHub</code> 的服务器上执行，开发者也可以在自己的服务器响应从 <code>GitHub</code> 触发的事件来执行工作流。</p>
+<h3 id="创建并配置-github-工程仓库">创建并配置 GitHub 工程仓库</h3>
+<p>首先创建一个私有的 <code>Github</code> 仓库用于存储工程文件，而后在该仓库页 <code>setting -&gt; Secrets -&gt; Actions</code> 下通过 <code>new repository secret</code> 创建一个新的动作密钥，并且注意<strong>一定要勾选</strong> <code>Allow write access</code>。密钥可以采用 <code>ssh-keygen</code> 命令生成密钥对，并将私钥填入，下面是参考密钥对生成代码。另外并假设这里你创建的动作密钥名称为 <code>ACTIONS_DEPLOY_KEY</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&#34;</span><span class="k">$(</span>git config user.email<span class="k">)</span><span class="s2">&#34;</span> -f gh-pages -N <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># You will get 2 files:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   gh-pages.pub (public key)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   gh-pages     (private key)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="创建并配置-github-主页仓库">创建并配置 GitHub 主页仓库</h3>
+<p>而后创建你的主页仓库，它应当是公开的，同时其仓库名应当是 <code>xxx.github.io</code>，其中 <code>xxx</code> 为你的 <code>Github</code> 用户名。在该仓库页 <code>setting -&gt; Pages</code> 你可以看到你的 <code>Github Page</code> 地址，同时下面的 <code>Custom Domain</code> 可以用以自定义地址的域名（你需要先购买一个并配好相关设置）。然后在 <code>Deploy keys -&gt; Add deploy key</code> 中添加对应的部署密钥，其值为先前 <code>ssh-keygen</code> 生成的公钥。</p>
+<h3 id="创建并配置-github-actions">创建并配置 GitHub Actions</h3>
+<p>在工程仓库对应的本地文件夹下，创建<code>.github/workflows/github-pages.yml</code> 文件，文件名你可以自定义，然后修改文件内容如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="c"># This is a basic workflow to help you get started with Actions</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Github Pages</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Controls when the workflow will run</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Triggers the workflow on push or pull request events but only for the main branch</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="l">master ]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Allows you to run this workflow manually from the Actions tab</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># A workflow run is made up of one or more jobs that can run sequentially or in parallel</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># This workflow contains a single job called &#34;build&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The type of runner that the job will run on</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Steps represent a sequence of tasks that will be executed as part of the job</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v2</span><span class="w"> </span><span class="c"># 后续版本可能有更新，请选择合适的版本</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">submodules</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c"># 根据你是否添加子模块而定</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">fetch-depth</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Setup Hugo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">peaceiris/actions-hugo@v2</span><span class="w"> </span><span class="c"># 后续版本可能有更新，请选择合适的版本</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">hugo-version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;0.93.2&#39;</span><span class="w"> </span><span class="c"># 根据你的 Hugo 版本而定</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">extended</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c"># 根据你的 Hugo 版本而定</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">hugo --minify</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">peaceiris/actions-gh-pages@v3</span><span class="w"> </span><span class="c"># 后续版本可能有更新，请选择合适的版本</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">DEPLOY_KEY</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.ACTIONS_DEPLOY_KEY }}</span><span class="w"> </span><span class="c"># 这里对应上面创建的动作密钥名称</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">EXTERNAL_REPOSITORY</span><span class="p">:</span><span class="w"> </span><span class="l">xxx/xxx.github.io</span><span class="w"> </span><span class="c"># 部署的主页仓库</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">PUBLISH_BRANCH</span><span class="p">:</span><span class="w"> </span><span class="l">master</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">PUBLISH_DIR</span><span class="p">:</span><span class="w"> </span><span class="l">./public</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>而后通过 <code>git</code> 或其他工具将该工程项目 <code>push</code> 到 对应<code>GitHub</code> 仓库中，等待一小段时间再次访问 <code>xxx.github.io</code>，即会发现对应的网页已经自动发生修改。如果发生错误，你会收到一封通知邮件，你可以通过 <code>Actions</code> 进入对应的 <code>workflow</code> 查找错误原因，并自行 <code>debug </code> 或通过 <a
+  href="https://www.google.com/"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>谷歌</a> 和 <a
+  href="www.baidu.com"
+  
+  
+  
+  
+  
+  
+>百度</a> 搜索相关经验。后续我们要对博客进行修改，也只需要修改工程文件然后 <code>push</code> 即可。</p></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title=2022-03-08&#32;09:18:48>更新于 2022-03-08</span>
+      </div>
+      <div class="post-info-license"></div>
+    </div>
+    <div class="post-info-line">
+      <div class="post-info-md"></div>
+      <div class="post-info-share">
+        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://wyxgoishin.github.io/%E5%88%A9%E7%94%A8-github-actions-%E6%9D%A5%E8%87%AA%E5%8A%A8%E5%8C%96-hugo-%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%83%A8%E7%BD%B2/" data-title="利用 GitHub Actions 来自动化 Hugo 博客的部署" data-hashtags="Hugo,GitHub Actions"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://wyxgoishin.github.io/%E5%88%A9%E7%94%A8-github-actions-%E6%9D%A5%E8%87%AA%E5%8A%A8%E5%8C%96-hugo-%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%83%A8%E7%BD%B2/" data-title="利用 GitHub Actions 来自动化 Hugo 博客的部署"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Reddit" data-sharer="reddit" data-url="https://wyxgoishin.github.io/%E5%88%A9%E7%94%A8-github-actions-%E6%9D%A5%E8%87%AA%E5%8A%A8%E5%8C%96-hugo-%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%83%A8%E7%BD%B2/"><i class="fab fa-reddit fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://wyxgoishin.github.io/%E5%88%A9%E7%94%A8-github-actions-%E6%9D%A5%E8%87%AA%E5%8A%A8%E5%8C%96-hugo-%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%83%A8%E7%BD%B2/" data-title="利用 GitHub Actions 来自动化 Hugo 博客的部署"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://wyxgoishin.github.io/%E5%88%A9%E7%94%A8-github-actions-%E6%9D%A5%E8%87%AA%E5%8A%A8%E5%8C%96-hugo-%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%83%A8%E7%BD%B2/" data-title="利用 GitHub Actions 来自动化 Hugo 博客的部署"><i class="fab fa-weibo fa-fw"></i></a></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/hugo/">Hugo</a>,&nbsp;<a href="/tags/github-actions/">GitHub Actions</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"></div>
+</div>
+</article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.93.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt 0.2.13"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2022</span><span class="footer-divider"></span><span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line ibruce">
+          <span id="busuanzi_container_site_uv" title=总访客数
+            ><i class="far fa-user"></i>
+            <span id="busuanzi_value_site_uv"
+              ><i class="fa fa-spinner fa-spin"></i
+            ></span
+          ></span><span class="site-time footer-divider" title=网站运行中&#32;...
+              ><i class="fas fa-heartbeat animate-icon"></i>
+              <span class="run-times">Loading...</span
+            ></span><span id="busuanzi_container_site_pv" class="footer-divider" title=总访问量
+            ><i class="far fa-eye"></i>
+            <span id="busuanzi_value_site_pv"
+              ><i class="fa fa-spinner fa-spin"></i
+            ></span
+          ></span>
+        </div></div>
+  </footer></div>
+
+    <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+        <i class="fas fa-arrow-up fa-fw"></i>
+      </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+        <i class="fas fa-comment fa-fw"></i>
+      </a>
+    </div><link rel="stylesheet" href="/lib/katex/katex.min.f7f9a1410c24a54e6890f7cce65d2fdcb9cff71b5ce892bc74a5b4fd69466947.css" integrity="sha256-9/mhQQwkpU5okPfM5l0v3LnP9xtc6JK8dKW0/WlGaUc="><link rel="stylesheet" href="/lib/katex/copy-tex.min.fa822dbe23da4e6aa30e1938cb87cb2d420c8114180d5fd9cab44dbd089e6d63.css" integrity="sha256-&#43;oItviPaTmqjDhk4y4fLLUIMgRQYDV/ZyrRNvQiebWM="><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.cd0d0b6e50ff01ff2f3a9a70d7cfb66a7c6cb9acf7a566325568be6d3bd31fc4.css" integrity="sha256-zQ0LblD/Af8vOppw18&#43;2anxsuaz3pWYyVWi&#43;bTvTH8Q="><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.ae2da1bd62c6469ee27770ad1cddf2e8296d8a7f6d85b091463e5200c5e320af.js" integrity="sha256-ri2hvWLGRp7id3CtHN3y6Cltin9thbCRRj5SAMXjIK8=" defer></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.17f7126c772e27c099f01e7925f8a1625dd010e3e76d80dee31391b8486950a6.js" integrity="sha256-F/cSbHcuJ8CZ8B55JfihYl3QEOPnbYDe4xORuEhpUKY=" defer></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.3d9120fa621da6d613c1698b7014ec6bdf4620366e8f2b7b547059f4b6f6272b.js" integrity="sha256-PZEg&#43;mIdptYTwWmLcBTsa99GIDZujyt7VHBZ9Lb2Jys=" async defer></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.11be927cda59c8b6019ebbea838285c5beaf21183ea4b83dbd4e4fbf9413ce4a.js" integrity="sha256-Eb6SfNpZyLYBnrvqg4KFxb6vIRg&#43;pLg9vU5Pv5QTzko=" defer></script><script type="text/javascript" src="/lib/sharer/sharer.min.8fe10eb615eb163a20f795484430a012805ec7c8c11df52df54ddb7a46084254.js" integrity="sha256-j&#43;EOthXrFjog95VIRDCgEoBex8jBHfUt9U3bekYIQlQ=" async defer></script><script type="text/javascript" src="/lib/katex/katex.min.717438b6c96d3b38a74b1a4daa73e574075fa6cb483d70432a28556fb71c64bd.js" integrity="sha256-cXQ4tsltOzinSxpNqnPldAdfpstIPXBDKihVb7ccZL0=" defer></script><script type="text/javascript" src="/lib/katex/auto-render.min.cb7f4ca60ed5dc3e258415f8c7a3b46d4a93578a52adf83011f18a7f190e7602.js" integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI=" defer></script><script type="text/javascript" src="/lib/katex/copy-tex.min.7ad4aa6d2545e3e2f07bc30693f55a9dcd6c47e996bfea8e1bbddfc56c3da7de.js" integrity="sha256-etSqbSVF4&#43;Lwe8MGk/Vanc1sR&#43;mWv&#43;qOG73fxWw9p94=" defer></script><script type="text/javascript" src="/lib/katex/mhchem.min.5cea356d6025c5a2f18c454c83ec5674dbb04fab1cd1d75569e77788c6b6f888.js" integrity="sha256-XOo1bWAlxaLxjEVMg&#43;xWdNuwT6sc0ddVaed3iMa2&#43;Ig=" defer></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.e55842a856a6d829feca3c3ad736c136b6c7549e9247274f78aa296259e06e24.js" integrity="sha256-5VhCqFam2Cn&#43;yjw61zbBNrbHVJ6SRydPeKopYlngbiQ=" defer></script><script type="text/javascript" src="/lib/pangu/pangu.min.8feca3e7a71d118d82c2456d1b2cf5f1f3726c51a930627c2711b7192c8edbe2.js" integrity="sha256-j&#43;yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2&#43;I=" defer></script><script type="text/javascript" src="/lib/cell-watermark/watermark.min.8518c89a43d8bcbcf981bbd3d6364ce91a5142b15e0e584e2a39dc36661d6b13.js" integrity="sha256-hRjImkPYvLz5gbvT1jZM6RpRQrFeDlhOKjncNmYdaxM=" defer></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"enablePWA":true,"enablePangu":true,"ibruce":{"enable":true,"siteTime":"2022-03-08T00:00:00+08:00"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"85AJU4PL9U","algoliaIndex":"index.zh-cn","algoliaSearchKey":"d0788fa68b24a919c3ffffd207d35c57","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"watermark":{"content":"\u003cimg class=\"fixit-icon\" src=\"/images/fixit.svg\" alt=\"FixIt logo\" /\u003e FixIt 主题","enable":true,"height":21,"opacity":0.02}};</script><script type="text/javascript" src="/js/theme.min.ac2bd145af726c9602ad02fe43bea4033361de2638eac7be582abc53ea81a7a6.js" integrity="sha256-rCvRRa9ybJYCrQL&#43;Q76kAzNh3iY46se&#43;WCq8U&#43;qBp6Y=" defer></script><script type="text/javascript" src="/js/_custom.min.1b800aa853f7da8349c961ffe14e8c4e7e8e16fc03d55aa9bda1c6adaaac5ff4.js" integrity="sha256-G4AKqFP32oNJyWH/4U6MTn6OFvwD1VqpvaHGraqsX/Q=" defer></script></body>
+</html>
