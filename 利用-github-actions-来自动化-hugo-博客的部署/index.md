@@ -138,7 +138,7 @@ jobs:
           extended: true # 根据你的 Hugo 版本而定
           
       - name: Build
-        run: hugo -D
+        run: hugo --minify
         
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3 # 后续版本可能有更新，请选择合适的版本
