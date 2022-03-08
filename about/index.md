@@ -1,7 +1,7 @@
 # About
 
 
-{{< music  kugou song 43C81F0EF761207C8DF8A8CA2ECC9833>}}
+{{< music  netease song 692193 >}}
 
 ## 关于我
 
