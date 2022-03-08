@@ -46,7 +46,7 @@
 
 3. `hugo server -D`
 
-该命令会启动服务器，并使你能在本地预览 `Hugo` 博客，预览端口默认为 `localhost:1313`。
+该命令会启动服务器，并使你能在本地预览 `Hugo` 博客，预览地址默认为 `localhost:1313`。
 
 4. `hugo`
 
@@ -149,6 +149,6 @@ jobs:
           PUBLISH_DIR: ./public
 ```
 
-而后通过 `git` 或其他工具将该工程项目 `push` 到 对应`GitHub` 仓库中，等待一小段时间你就会收到 `workflow` 的执行成功的通知邮件。如果发生错误，你也可以通过 `Actions` 进入对应的 `workflow` 查找错误原因，并自行 `debug ` 或通过 [谷歌](https://www.google.com/) 和 [百度](www.baidu.com) 搜索相关经验。此时我们再次访问 `xxx.github.io`，即会发现对应的网页已经自动发生修改。后续我们要对博客进行修改，也只需要修改工程文件然后 `push` 即可。
+而后通过 `git` 或其他工具将该工程项目 `push` 到 对应`GitHub` 仓库中，等待一小段时间再次访问 `xxx.github.io`，即会发现对应的网页已经自动发生修改。如果发生错误，你会收到一封通知邮件，你可以通过 `Actions` 进入对应的 `workflow` 查找错误原因，并自行 `debug ` 或通过 [谷歌](https://www.google.com/) 和 [百度](www.baidu.com) 搜索相关经验。后续我们要对博客进行修改，也只需要修改工程文件然后 `push` 即可。
 
 
