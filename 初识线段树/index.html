@@ -1,0 +1,394 @@
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content="noodp">
+<meta http-equiv=x-ua-compatible content="IE=edge, chrome=1">
+<title>初识线段树 - </title><meta name=author content="wyxgoishin: https://wyxgoishin.github.io">
+<meta name=description content="本文主要介绍了线段树的基本操作，并以区间和为例对其更新和查询做了详细介绍。">
+<meta name=keywords content="SegmentTree,DataStructure"><meta itemprop=name content="初识线段树">
+<meta itemprop=description content="本文主要介绍了线段树的基本操作，并以区间和为例对其更新和查询做了详细介绍。"><meta itemprop=datePublished content="2022-03-11T14:30:23+08:00">
+<meta itemprop=dateModified content="2022-03-11T08:44:01+00:00">
+<meta itemprop=wordCount content="2431"><meta itemprop=image content="https://wyxgoishin.github.io/logo.png">
+<meta itemprop=keywords content="SegmentTree,DataStructure,"><meta property="og:title" content="初识线段树">
+<meta property="og:description" content="本文主要介绍了线段树的基本操作，并以区间和为例对其更新和查询做了详细介绍。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wyxgoishin.github.io/%E5%88%9D%E8%AF%86%E7%BA%BF%E6%AE%B5%E6%A0%91/"><meta property="og:image" content="https://wyxgoishin.github.io/logo.png"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2022-03-11T14:30:23+08:00">
+<meta property="article:modified_time" content="2022-03-11T08:44:01+00:00">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://wyxgoishin.github.io/logo.png">
+<meta name=twitter:title content="初识线段树">
+<meta name=twitter:description content="本文主要介绍了线段树的基本操作，并以区间和为例对其更新和查询做了详细介绍。">
+<meta name=application-name content="兴趣使然的无名小站">
+<meta name=apple-mobile-web-app-title content="兴趣使然的无名小站"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#252627"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://wyxgoishin.github.io/%E5%88%9D%E8%AF%86%E7%BA%BF%E6%AE%B5%E6%A0%91/><link rel=prev href=https://wyxgoishin.github.io/%E5%88%A9%E7%94%A8-github-actions-%E6%9D%A5%E8%87%AA%E5%8A%A8%E5%8C%96-hugo-%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%83%A8%E7%BD%B2/><link rel=stylesheet href=/lib/normalize/normalize.min.77404aa50bdc968c26098e2498be1ac46b23bfa8081babe46b883d24208df795.css integrity="sha256-d0BKpQvclowmCY4kmL4axGsjv6gIG6vka4g9JCCN95U="><link rel=stylesheet href=/css/style.min.c6e77772e50a6ac21a5413bdc928b84e81e8d5beaa54f4eccd2ee9cdd91849f8.css integrity="sha256-xud3cuUKasIaVBO9ySi4ToHo1b6qVPTszS7pzdkYSfg="><link rel=stylesheet href=/lib/fontawesome-free/all.min.14cbd9b866a9b092e3a2e03a93b128da5baca005fd8b44a1956146eaab7b48b7.css integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc="><link rel=stylesheet href=/lib/animate/animate.min.5fbaeb9f8e25d7e0143bae61d4b1802c16ce7390b96ceb2d498b0d96ff4c853f.css integrity="sha256-X7rrn44l1+AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8="><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"初识线段树","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/wyxgoishin.github.io\/%E5%88%9D%E8%AF%86%E7%BA%BF%E6%AE%B5%E6%A0%91\/"},"image":["https:\/\/wyxgoishin.github.io\/images\/Apple-Devices-Preview.png"],"genre":"posts","keywords":"SegmentTree, DataStructure","wordcount":2431,"url":"https:\/\/wyxgoishin.github.io\/%E5%88%9D%E8%AF%86%E7%BA%BF%E6%AE%B5%E6%A0%91\/","datePublished":"2022-03-11T14:30:23+08:00","dateModified":"2022-03-11T08:44:01+00:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"Lruihao","logo":"https:\/\/wyxgoishin.github.io\/images\/avatar.png"},"author":{"@type":"Person","name":"wyxgoishin"},"description":"本文主要介绍了线段树的基本操作，并以区间和为例对其更新和查询做了详细介绍。"}</script></head><body header-desktop=sticky header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("theme","dark")</script>
+<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title><img class="lazyload logo" src=/svg/loading.min.svg data-src=/images/cat-solid.svg data-srcset="/images/cat-solid.svg, /images/cat-solid.svg 1.5x, /images/cat-solid.svg 2x" data-sizes=auto alt=/images/cat-solid.svg title=/images/cat-solid.svg><span class=header-title-text>兴趣使然的无名小站</span></a><span class=header-subtitle></span></div><div class=menu>
+<div class=menu-inner><a class=menu-item href=/posts/> 所有文章 </a><a class=menu-item href=/tags/> 标签 </a><a class=menu-item href=/categories/> 分类 </a><a class=menu-item href=/about/> 关于 </a><a class=menu-item href=https://github.com/wyxgoishin title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i> </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder="搜索文章标题或内容 ..." id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-desktop>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+</a>
+</div></div></div></header><header class=mobile id=header-mobile>
+<div class=header-container>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title><img class="lazyload logo" src=/svg/loading.min.svg data-src=/images/cat-solid.svg data-srcset="/images/cat-solid.svg, /images/cat-solid.svg 1.5x, /images/cat-solid.svg 2x" data-sizes=auto alt=/images/cat-solid.svg title=/images/cat-solid.svg><span class=header-title-text>兴趣使然的无名小站</span></a><span class=header-subtitle></span></div><div class=menu-toggle id=menu-toggle-mobile>
+<span></span><span></span><span></span>
+</div></div><div class=menu id=menu-mobile><div class=search-wrapper>
+<div class="search mobile" id=search-mobile>
+<input type=text placeholder="搜索文章标题或内容 ..." id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-mobile>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>
+取消
+</a>
+</div><a class=menu-item href=/posts/ title>所有文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=/about/ title>关于</a><a class=menu-item href=https://github.com/wyxgoishin title=GitHub rel="noopener noreffer" target=_blank><i class="fab fa-github fa-fw"></i></a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+</a></div></div></header><div class="search-dropdown desktop">
+<div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile">
+<div id=search-dropdown-mobile></div></div><main class=container page-style=normal><aside class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></aside><aside class=aside-custom>
+</aside><article class="page single"><h1 class="single-title animate__animated animate__flipInX">初识线段树</h1><div class=post-meta>
+<div class=post-meta-line><span class=post-author><a href=https://wyxgoishin.github.io title=Author target=_blank rel="external nofollow noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>wyxgoishin</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/datastructure/><i class="far fa-folder fa-fw"></i>数据结构</a></span></div><div class=post-meta-line><span title="2022-03-11 14:30:23">
+<i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2022-03-11>2022-03-11</time>
+</span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2431 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id=/%E5%88%9D%E8%AF%86%E7%BA%BF%E6%AE%B5%E6%A0%91/ class=leancloud_visitors data-flag-title=初识线段树>
+<i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count>-</span>&nbsp;次阅读
+</span>&nbsp;<span class=comment-count data-flag-title=初识线段树>
+<i class="far fa-comments fa-fw"></i>&nbsp;<span data-xid=/%E5%88%9D%E8%AF%86%E7%BA%BF%E6%AE%B5%E6%A0%91/ class=valine-comment-count>-</span>&nbsp;条评论
+</span>&nbsp;</div></div><div class="details toc" id=toc-static kept=false>
+<div class="details-summary toc-title">
+<span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span>
+</div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
+<ul>
+<li><a href=#写在前面>写在前面</a></li><li><a href=#线段树介绍>线段树介绍</a></li><li><a href=#线段树的建立>线段树的建立</a></li><li><a href=#线段树的修改>线段树的修改</a></li><li><a href=#线段树的查询>线段树的查询</a></li><li><a href=#结语>结语</a></li></ul></nav></div></div><div class=content id=content><h2 id=写在前面>写在前面</h2><p>本文主要参考了 <a href=https://zhuanlan.zhihu.com/p/106118909 target=_blank rel="external nofollow noopener noreffer">Pecco的知乎专栏</a>，并在线段树<strong>概念介面</strong>增加了更多笔墨和证明，期望能给后续自身复习和他人学习带来更多帮助。由于个人疏于 <em>C++</em> 语言，因此重新使用 <em>Java</em> 语言进行了实现。</p><h2 id=线段树介绍>线段树介绍</h2><p><strong>线段树</strong>（Segment Tree）是一种主要用于<strong>维护区间信息</strong>（要求满足结合律）的数据结构，它支持 $O(logn) $复杂度的<strong>区间修改</strong>和 $O(logn)$ 复杂度的<strong>区间查询</strong>。</p><p>线段树的每个节点都对应一条<strong>线段</strong>（<strong>区间</strong>）的<strong>某种运算结果</strong>（通常是乘积或加和，<strong>下面均以加和为例</strong>），其中根节点对应整个区间的和。对于某个非叶子节点 $node[left, right]$，其左右子节点对应区间可表示如下：</p><ul>
+<li>$node.left[left, mid]$</li><li>$node.right[mid + 1, right]$</li><li>$mid = \lfloor{(left + right) / 2)}\rfloor{} \ or \ \lfloor{(left + right + 1) / 2}\rfloor{} - 1$</li></ul><p>为了更加直观，这里以区间 $[1, 5]$ 为例，对两种不同划分情况建立的线段树进行可视化：</p><ul>
+<li>方式一</li></ul><div class=mermaid id=id-1></div><ul>
+<li>方式二</li></ul><div class=mermaid id=id-2></div><p>可以看出线段树<strong>所有节点的左右子树高度差至多为1</strong>，因此线段树是一颗<strong>平衡二叉树</strong>。</p><p>接下来我们探讨线段树的<strong>存储方式</strong>。通常我们会将线段树存储在<strong>数组</strong>里，那么对于长度为 $n$ 的原数组，存储它的数组的大小应当为多少？</p><p>答案是至少为 $2n - 1$，至多为 $4n - 5$。让我们来简单证明下。</p><p>对于一颗线段树，其叶子节点的数量为 $n$，因此其非叶子节点的数量为 $n - 1$，你可以很容易证明它，因为<strong>线段树的非叶子节点要么没有子节点，要么左右节点都不为空</strong>。所以存储线段树的数组大小至少为 $2n - 1$。
+$$
+n_0 + n_1 + n_2 = 2n_2 + n_1 + 1 -> n_2 = n_0 - 1 = n - 1
+$$
+但考虑如方式二种所示情况，因为使用数组存储，所以<strong>最后一层中为空的节点同样需要消耗数组空间</strong>。此时线段树的倒数第二层的节点数量为 $n - 2 + 1 = n - 1$，因此最后一层为空的节点数为 $2(n - 1) - 2 = 2n - 4$，所以整个数组的大小为 $2n - 4 + 2n - 1 = 4n - 5$。</p><p>而容易得知方式二就是最快的情况，所以一般建立线段树数组时需要开辟 $4n$ 的存储空间。</p><h2 id=线段树的建立>线段树的建立</h2><p>那么如何从数组中建立一棵线段树？我们可以考虑<strong>递归</strong>地进行。假设输入数组为 $nums$， 长度为 $n$。</p><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kt>int</span><span class=o>[]</span> <span class=n>tree</span> <span class=o>=</span> <span class=k>new</span> <span class=kt>int</span><span class=o>[</span><span class=n>4</span> <span class=o>*</span> <span class=n>n</span><span class=o>];</span>
+</span></span><span class=line><span class=cl><span class=c1>// left, right为输入数组的左右区间点，p为待建立线段树的节点下标
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>public</span> <span class=kt>void</span> <span class=nf>build</span><span class=o>(</span><span class=kt>int</span> <span class=n>left</span><span class=o>,</span> <span class=kt>int</span> <span class=n>right</span><span class=o>,</span> <span class=kt>int</span> <span class=n>p</span><span class=o>){</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 叶子节点
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>if</span><span class=o>(</span><span class=n>left</span> <span class=o>==</span> <span class=n>right</span><span class=o>){</span>
+</span></span><span class=line><span class=cl>        <span class=n>tree</span><span class=o>[</span><span class=n>p</span><span class=o>]</span> <span class=o>=</span> <span class=n>nums</span><span class=o>[</span><span class=n>left</span><span class=o>];</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span><span class=k>else</span><span class=o>{</span>
+</span></span><span class=line><span class=cl>        <span class=kt>int</span> <span class=n>mid</span> <span class=o>=</span> <span class=n>left</span> <span class=o>+</span> <span class=o>(</span><span class=n>right</span> <span class=o>-</span> <span class=n>left</span> <span class=o>&gt;&gt;</span> <span class=n>1</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// 先建立左右节点
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=n>build</span><span class=o>(</span><span class=n>left</span><span class=o>,</span> <span class=n>mid</span><span class=o>,</span> <span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>1</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>        <span class=n>build</span><span class=o>(</span><span class=n>mid</span> <span class=o>+</span> <span class=n>1</span><span class=o>,</span> <span class=n>right</span><span class=o>,</span> <span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>2</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>        <span class=c1>// 该节点的和等于左右节点的和
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=n>tree</span><span class=o>[</span><span class=n>p</span><span class=o>]</span> <span class=o>=</span> <span class=n>tree</span><span class=o>[</span><span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>1</span><span class=o>]</span> <span class=o>+</span> <span class=n>tree</span><span class=o>[</span><span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>2</span><span class=o>];</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>这里是一张来自网上的 $gif$ 图，它描述了对 $[1,2,3,4,5]$ 建立线段树的过程：</p><p><img class=lazyload src=/svg/loading.min.svg data-src=https://s2.loli.net/2022/03/11/NdxbvPj9T5Wh3AD.gif data-srcset="https://s2.loli.net/2022/03/11/NdxbvPj9T5Wh3AD.gif, https://s2.loli.net/2022/03/11/NdxbvPj9T5Wh3AD.gif 1.5x, https://s2.loli.net/2022/03/11/NdxbvPj9T5Wh3AD.gif 2x" data-sizes=auto alt=https://s2.loli.net/2022/03/11/NdxbvPj9T5Wh3AD.gif title=img></p><h2 id=线段树的修改>线段树的修改</h2><p>仿照线段树的建立，我们也可以采用递归的方式进行修改，但这样的时间复杂度会比较高。而通常则会引入<strong>懒标记</strong>来加速这一过程，这也是线段树的<strong>精髓</strong>所在。使用懒标记后，对于恰好是<strong>线段树非叶子节点</strong>的那些区间，我们不再递归下去，而是打上一个标记，等到将来要用到它的<strong>子区间</strong>时，再<strong>向下传递</strong>。假设需要修改的区间为$[left, right]$，修改的量为 $d$，那么修改过程可以表示为：</p><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kt>int</span><span class=o>[]</span> <span class=n>mark</span> <span class=o>=</span> <span class=k>new</span> <span class=kt>int</span><span class=o>[</span><span class=n>4</span> <span class=o>*</span> <span class=n>n</span><span class=o>];</span>
+</span></span><span class=line><span class=cl><span class=kd>public</span> <span class=kt>void</span> <span class=nf>update</span><span class=o>(</span><span class=kt>int</span> <span class=n>left</span><span class=o>,</span> <span class=kt>int</span> <span class=n>right</span><span class=o>,</span> <span class=kt>int</span> <span class=n>d</span><span class=o>){</span>
+</span></span><span class=line><span class=cl>    <span class=n>update</span><span class=o>(</span><span class=n>left</span><span class=o>,</span> <span class=n>right</span><span class=o>,</span> <span class=n>d</span><span class=o>,</span> <span class=n>0</span><span class=o>,</span> <span class=n>0</span><span class=o>,</span> <span class=n>n</span> <span class=o>-</span> <span class=n>1</span><span class=o>);</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// cLeft, cRight代表当前要修改的线段树区间
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kd>public</span> <span class=kt>void</span> <span class=nf>update</span><span class=o>(</span><span class=kt>int</span> <span class=n>left</span><span class=o>,</span> <span class=kt>int</span> <span class=n>right</span><span class=o>,</span> <span class=kt>int</span> <span class=n>d</span><span class=o>,</span> <span class=kt>int</span> <span class=n>p</span><span class=o>,</span> <span class=kt>int</span> <span class=n>cLeft</span><span class=o>,</span> <span class=kt>int</span> <span class=n>cRight</span><span class=o>){</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 修改区间不包含线段树区间
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>if</span><span class=o>(</span><span class=n>left</span> <span class=o>&gt;</span> <span class=n>cRight</span> <span class=o>||</span> <span class=n>right</span> <span class=o>&lt;</span> <span class=n>cLeft</span><span class=o>){</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span><span class=k>else</span> <span class=k>if</span><span class=o>(</span><span class=n>cLeft</span> <span class=o>&gt;=</span> <span class=n>left</span> <span class=o>&amp;&amp;</span> <span class=n>right</span> <span class=o>&gt;=</span> <span class=n>cRight</span><span class=o>){</span> <span class=c1>// 修改区间完全覆盖线段树区间
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=n>tree</span><span class=o>[</span><span class=n>p</span><span class=o>]</span> <span class=o>+=</span> <span class=o>(</span><span class=n>cRight</span> <span class=o>-</span> <span class=n>cLeft</span> <span class=o>+</span> <span class=n>1</span><span class=o>)</span> <span class=o>*</span> <span class=n>d</span><span class=o>;</span> <span class=c1>// 直接修改对应区间值
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>if</span><span class=o>(</span><span class=n>cLeft</span> <span class=o>!=</span> <span class=n>cRight</span><span class=o>){</span> <span class=c1>// 并给非叶子节点打上标记
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=n>mark</span><span class=o>[</span><span class=n>p</span><span class=o>]</span> <span class=o>+=</span> <span class=n>d</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>        <span class=o>}</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span><span class=k>else</span><span class=o>{</span> <span class=c1>// 修改区间与线段树区间存在重叠，则二分递归地修改
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=kt>int</span> <span class=n>mid</span> <span class=o>=</span> <span class=n>cLeft</span> <span class=o>+</span> <span class=o>(</span><span class=n>cRight</span> <span class=o>-</span> <span class=n>cLeft</span> <span class=o>&gt;&gt;</span> <span class=n>1</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>        <span class=n>mark</span><span class=o>[</span><span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>1</span><span class=o>]</span> <span class=o>+=</span> <span class=n>mark</span><span class=o>[</span><span class=n>p</span><span class=o>];</span> <span class=c1>// 将当前节点的标记分发给其子节点
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=n>mark</span><span class=o>[</span><span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>2</span><span class=o>]</span> <span class=o>+=</span> <span class=n>mark</span><span class=o>[</span><span class=n>p</span><span class=o>];</span>
+</span></span><span class=line><span class=cl>        <span class=n>tree</span><span class=o>[</span><span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>1</span><span class=o>]</span> <span class=o>+=</span> <span class=n>mark</span><span class=o>[</span><span class=n>p</span><span class=o>]</span> <span class=o>*</span> <span class=o>(</span><span class=n>mid</span> <span class=o>-</span> <span class=n>cLeft</span> <span class=o>+</span> <span class=n>1</span><span class=o>);</span> <span class=c1>// 子节点的值叠加父节点的标记量
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=n>tree</span><span class=o>[</span><span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>2</span><span class=o>]</span> <span class=o>+=</span> <span class=n>mark</span><span class=o>[</span><span class=n>p</span><span class=o>]</span> <span class=o>*</span> <span class=o>(</span><span class=n>cRight</span> <span class=o>-</span> <span class=n>mid</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>        <span class=n>mark</span><span class=o>[</span><span class=n>p</span><span class=o>]</span> <span class=o>=</span> <span class=n>0</span><span class=o>;</span> <span class=c1>// 因为已经把懒标记给了子节点，所以本身的标记置0
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=o>}</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>有同学可能会疑惑这个更新操作在<strong>修改区间完全覆盖线段树区间时没有更新整个线段树</strong>，但其实我们后续<strong>查询的过程中也会根据懒标记对节点值更新</strong>，所以不必担忧。</p><p>下面是一段为上面建立的线段树的区间 $[1,4]$ 加上 1 的过程：</p><p><img class=lazyload src=/svg/loading.min.svg data-src=https://s2.loli.net/2022/03/11/1uflGwr3LEe5PqH.gif data-srcset="https://s2.loli.net/2022/03/11/1uflGwr3LEe5PqH.gif, https://s2.loli.net/2022/03/11/1uflGwr3LEe5PqH.gif 1.5x, https://s2.loli.net/2022/03/11/1uflGwr3LEe5PqH.gif 2x" data-sizes=auto alt=https://s2.loli.net/2022/03/11/1uflGwr3LEe5PqH.gif title=https://s2.loli.net/2022/03/11/1uflGwr3LEe5PqH.gif></p><p>实际上，对于上段更新部分 $18 \to 22$ 部分的代码，由于后续查询部分同样要用到，所以通常会额外封装成另一个函数 $push_down$，其代码为：</p><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>private</span> <span class=kt>void</span> <span class=nf>push_down</span><span class=o>(</span><span class=kt>int</span> <span class=n>p</span><span class=o>,</span> <span class=kt>int</span> <span class=n>cLeft</span><span class=o>,</span> <span class=kt>int</span> <span class=n>mid</span><span class=o>,</span> <span class=kt>int</span> <span class=n>cRight</span><span class=o>){</span>
+</span></span><span class=line><span class=cl>    <span class=n>mark</span><span class=o>[</span><span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>1</span><span class=o>]</span> <span class=o>+=</span> <span class=n>mark</span><span class=o>[</span><span class=n>p</span><span class=o>];</span>
+</span></span><span class=line><span class=cl>    <span class=n>mark</span><span class=o>[</span><span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>2</span><span class=o>]</span> <span class=o>+=</span> <span class=n>mark</span><span class=o>[</span><span class=n>p</span><span class=o>];</span>
+</span></span><span class=line><span class=cl>    <span class=n>tree</span><span class=o>[</span><span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>1</span><span class=o>]</span> <span class=o>+=</span> <span class=n>mark</span><span class=o>[</span><span class=n>p</span><span class=o>]</span> <span class=o>*</span> <span class=o>(</span><span class=n>mid</span> <span class=o>-</span> <span class=n>cLeft</span> <span class=o>+</span> <span class=n>1</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>    <span class=n>tree</span><span class=o>[</span><span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>2</span><span class=o>]</span> <span class=o>+=</span> <span class=n>mark</span><span class=o>[</span><span class=n>p</span><span class=o>]</span> <span class=o>*</span> <span class=o>(</span><span class=n>cRight</span> <span class=o>-</span> <span class=n>mid</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>    <span class=n>mark</span><span class=o>[</span><span class=n>p</span><span class=o>]</span> <span class=o>=</span> <span class=n>0</span><span class=o>;</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=线段树的查询>线段树的查询</h2><p>有了线段树的修改部分的经验，我们同样可以利用懒标记很快地写出查询部分的代码如下：</p><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>public</span> <span class=kt>int</span> <span class=nf>query</span><span class=o>(</span><span class=kt>int</span> <span class=n>left</span><span class=o>,</span> <span class=kt>int</span> <span class=n>right</span><span class=o>){</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>query</span><span class=o>(</span><span class=n>left</span><span class=o>,</span> <span class=n>right</span><span class=o>,</span> <span class=n>0</span><span class=o>,</span> <span class=n>0</span><span class=o>,</span> <span class=n>n</span> <span class=o>-</span> <span class=n>1</span><span class=o>);</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kd>private</span> <span class=kt>int</span> <span class=nf>query</span><span class=o>(</span><span class=kt>int</span> <span class=n>left</span><span class=o>,</span> <span class=kt>int</span> <span class=n>right</span><span class=o>,</span> <span class=kt>int</span> <span class=n>p</span><span class=o>,</span> <span class=kt>int</span> <span class=n>cLeft</span><span class=o>,</span> <span class=kt>int</span> <span class=n>cRight</span><span class=o>){</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// 查询区间不包含线段树区间
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>if</span><span class=o>(</span><span class=n>left</span> <span class=o>&gt;</span> <span class=n>cRight</span> <span class=o>||</span> <span class=n>right</span> <span class=o>&lt;</span> <span class=n>cLeft</span><span class=o>){</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>0</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span><span class=k>else</span> <span class=k>if</span><span class=o>(</span><span class=n>cLeft</span> <span class=o>&gt;=</span> <span class=n>left</span> <span class=o>&amp;&amp;</span> <span class=n>cRight</span> <span class=o>&lt;=</span> <span class=n>right</span><span class=o>){</span> <span class=c1>// 查询区间恰好覆盖线段树区间
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>return</span> <span class=n>tree</span><span class=o>[</span><span class=n>p</span><span class=o>];</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span><span class=k>else</span><span class=o>{</span> <span class=c1>// 查询区间与线段树区间存在重叠，则二分查询，同时记得跟新懒标记
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=kt>int</span> <span class=n>mid</span> <span class=o>=</span> <span class=n>cLeft</span> <span class=o>+</span> <span class=o>(</span><span class=n>cRight</span> <span class=o>-</span> <span class=n>cLeft</span> <span class=o>&gt;&gt;&gt;</span> <span class=n>1</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>        <span class=n>push_down</span><span class=o>(</span><span class=n>p</span><span class=o>,</span> <span class=n>cLeft</span><span class=o>,</span> <span class=n>mid</span><span class=o>,</span> <span class=n>cRight</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>query</span><span class=o>(</span><span class=n>left</span><span class=o>,</span> <span class=n>right</span><span class=o>,</span> <span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>1</span><span class=o>,</span> <span class=n>cLeft</span><span class=o>,</span> <span class=n>mid</span><span class=o>)</span> <span class=o>+</span> <span class=n>query</span><span class=o>(</span><span class=n>left</span><span class=o>,</span> <span class=n>right</span><span class=o>,</span> <span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>2</span><span class=o>,</span> <span class=n>mid</span> <span class=o>+</span> <span class=n>1</span><span class=o>,</span> <span class=n>cRight</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=结语>结语</h2><p>本文仅介绍了最基本的线段树用法，其实线段树的题目千奇百怪，而且技巧极多。在维护不同的信息时，需要注意是否需要乘区间长度、不同的标记之间是否相互影响等。下面附上用于<strong>区间和</strong>的线段树模板：</p><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span></code></pre></td><td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>class</span> <span class=nc>SegmentTree</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>    <span class=kd>private</span> <span class=kd>final</span> <span class=kt>int</span><span class=o>[]</span> <span class=n>tree</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>    <span class=kd>private</span> <span class=kd>final</span> <span class=kt>int</span><span class=o>[]</span> <span class=n>mark</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>    <span class=kd>private</span> <span class=kd>final</span> <span class=kt>int</span> <span class=n>n</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=nf>SegmentTree</span><span class=o>(</span><span class=kt>int</span><span class=o>[]</span> <span class=n>nums</span><span class=o>){</span>
+</span></span><span class=line><span class=cl>        <span class=n>n</span> <span class=o>=</span> <span class=n>nums</span><span class=o>.</span><span class=na>length</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>        <span class=n>tree</span> <span class=o>=</span> <span class=k>new</span> <span class=kt>int</span><span class=o>[</span><span class=n>n</span> <span class=o>&lt;&lt;</span> <span class=n>2</span><span class=o>];</span>
+</span></span><span class=line><span class=cl>        <span class=n>Arrays</span><span class=o>.</span><span class=na>fill</span><span class=o>(</span><span class=n>tree</span><span class=o>,</span> <span class=n>Integer</span><span class=o>.</span><span class=na>MIN_VALUE</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>        <span class=n>build</span><span class=o>(</span><span class=n>nums</span><span class=o>,</span> <span class=n>0</span><span class=o>,</span> <span class=n>nums</span><span class=o>.</span><span class=na>length</span> <span class=o>-</span> <span class=n>1</span><span class=o>,</span> <span class=n>0</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>        <span class=n>mark</span> <span class=o>=</span> <span class=k>new</span> <span class=kt>int</span><span class=o>[</span><span class=n>n</span> <span class=o>&lt;&lt;</span> <span class=n>2</span><span class=o>];</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kd>private</span> <span class=kt>void</span> <span class=nf>build</span><span class=o>(</span><span class=kt>int</span><span class=o>[]</span> <span class=n>nums</span><span class=o>,</span> <span class=kt>int</span> <span class=n>left</span><span class=o>,</span> <span class=kt>int</span> <span class=n>right</span><span class=o>,</span> <span class=kt>int</span> <span class=n>p</span><span class=o>){</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span><span class=o>(</span><span class=n>left</span> <span class=o>==</span> <span class=n>right</span><span class=o>){</span>
+</span></span><span class=line><span class=cl>            <span class=n>tree</span><span class=o>[</span><span class=n>p</span><span class=o>]</span> <span class=o>=</span> <span class=n>nums</span><span class=o>[</span><span class=n>left</span><span class=o>];</span>
+</span></span><span class=line><span class=cl>        <span class=o>}</span><span class=k>else</span><span class=o>{</span>
+</span></span><span class=line><span class=cl>            <span class=kt>int</span> <span class=n>mid</span> <span class=o>=</span> <span class=o>(</span><span class=n>left</span> <span class=o>+</span> <span class=n>right</span><span class=o>)</span> <span class=o>/</span> <span class=n>2</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>            <span class=n>build</span><span class=o>(</span><span class=n>nums</span><span class=o>,</span> <span class=n>left</span><span class=o>,</span> <span class=n>mid</span><span class=o>,</span> <span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>1</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>            <span class=n>build</span><span class=o>(</span><span class=n>nums</span><span class=o>,</span> <span class=n>mid</span> <span class=o>+</span> <span class=n>1</span><span class=o>,</span> <span class=n>right</span><span class=o>,</span> <span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>2</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>            <span class=n>tree</span><span class=o>[</span><span class=n>p</span><span class=o>]</span> <span class=o>=</span> <span class=n>tree</span><span class=o>[</span><span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>1</span><span class=o>]</span> <span class=o>+</span> <span class=n>tree</span><span class=o>[</span><span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>2</span><span class=o>];</span>
+</span></span><span class=line><span class=cl>        <span class=o>}</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=kt>void</span> <span class=nf>update</span><span class=o>(</span><span class=kt>int</span> <span class=n>left</span><span class=o>,</span> <span class=kt>int</span> <span class=n>right</span><span class=o>,</span> <span class=kt>int</span> <span class=n>d</span><span class=o>){</span>
+</span></span><span class=line><span class=cl>        <span class=n>update</span><span class=o>(</span><span class=n>left</span><span class=o>,</span> <span class=n>right</span><span class=o>,</span> <span class=n>d</span><span class=o>,</span> <span class=n>0</span><span class=o>,</span> <span class=n>0</span><span class=o>,</span> <span class=n>n</span> <span class=o>-</span> <span class=n>1</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kd>private</span> <span class=kt>void</span> <span class=nf>update</span><span class=o>(</span><span class=kt>int</span> <span class=n>left</span><span class=o>,</span> <span class=kt>int</span> <span class=n>right</span><span class=o>,</span> <span class=kt>int</span> <span class=n>d</span><span class=o>,</span> <span class=kt>int</span> <span class=n>p</span><span class=o>,</span> <span class=kt>int</span> <span class=n>cLeft</span><span class=o>,</span> <span class=kt>int</span> <span class=n>cRight</span><span class=o>){</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span><span class=o>(</span><span class=n>cLeft</span> <span class=o>&gt;</span> <span class=n>right</span> <span class=o>||</span> <span class=n>cRight</span> <span class=o>&lt;</span> <span class=n>left</span><span class=o>){</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>        <span class=o>}</span><span class=k>else</span> <span class=k>if</span><span class=o>(</span><span class=n>cLeft</span> <span class=o>&gt;=</span> <span class=n>left</span> <span class=o>&amp;&amp;</span> <span class=n>cRight</span> <span class=o>&lt;=</span> <span class=n>right</span><span class=o>){</span>
+</span></span><span class=line><span class=cl>            <span class=n>tree</span><span class=o>[</span><span class=n>p</span><span class=o>]</span> <span class=o>+=</span> <span class=o>(</span><span class=n>cRight</span> <span class=o>-</span> <span class=n>cLeft</span> <span class=o>+</span> <span class=n>1</span><span class=o>)</span> <span class=o>*</span> <span class=n>d</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span><span class=o>(</span><span class=n>cLeft</span> <span class=o>&lt;</span> <span class=n>cRight</span><span class=o>){</span>
+</span></span><span class=line><span class=cl>                <span class=n>mark</span><span class=o>[</span><span class=n>p</span><span class=o>]</span> <span class=o>+=</span> <span class=n>1</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>            <span class=o>}</span>
+</span></span><span class=line><span class=cl>        <span class=o>}</span><span class=k>else</span><span class=o>{</span>
+</span></span><span class=line><span class=cl>            <span class=kt>int</span> <span class=n>mid</span> <span class=o>=</span> <span class=n>cLeft</span> <span class=o>+</span> <span class=o>(</span><span class=n>cRight</span> <span class=o>-</span> <span class=n>cLeft</span> <span class=o>&gt;&gt;&gt;</span> <span class=n>1</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>            <span class=n>push_down</span><span class=o>(</span><span class=n>p</span><span class=o>,</span> <span class=n>cLeft</span><span class=o>,</span> <span class=n>mid</span><span class=o>,</span> <span class=n>cRight</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>            <span class=n>update</span><span class=o>(</span><span class=n>left</span><span class=o>,</span> <span class=n>right</span><span class=o>,</span> <span class=n>d</span><span class=o>,</span> <span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>1</span><span class=o>,</span> <span class=n>cLeft</span><span class=o>,</span> <span class=n>mid</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>            <span class=n>update</span><span class=o>(</span><span class=n>left</span><span class=o>,</span> <span class=n>right</span><span class=o>,</span> <span class=n>d</span><span class=o>,</span> <span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>2</span><span class=o>,</span> <span class=n>mid</span> <span class=o>+</span> <span class=n>1</span><span class=o>,</span> <span class=n>cRight</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>            <span class=n>tree</span><span class=o>[</span><span class=n>p</span><span class=o>]</span> <span class=o>=</span> <span class=n>tree</span><span class=o>[</span><span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>1</span><span class=o>]</span> <span class=o>+</span> <span class=n>tree</span><span class=o>[</span><span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>2</span><span class=o>];</span>
+</span></span><span class=line><span class=cl>        <span class=o>}</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kd>public</span> <span class=kt>int</span> <span class=nf>query</span><span class=o>(</span><span class=kt>int</span> <span class=n>left</span><span class=o>,</span> <span class=kt>int</span> <span class=n>right</span><span class=o>){</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>query</span><span class=o>(</span><span class=n>left</span><span class=o>,</span> <span class=n>right</span><span class=o>,</span> <span class=n>0</span><span class=o>,</span> <span class=n>0</span><span class=o>,</span> <span class=n>n</span> <span class=o>-</span> <span class=n>1</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kd>private</span> <span class=kt>int</span> <span class=nf>query</span><span class=o>(</span><span class=kt>int</span> <span class=n>left</span><span class=o>,</span> <span class=kt>int</span> <span class=n>right</span><span class=o>,</span> <span class=kt>int</span> <span class=n>p</span><span class=o>,</span> <span class=kt>int</span> <span class=n>cLeft</span><span class=o>,</span> <span class=kt>int</span> <span class=n>cRight</span><span class=o>){</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span><span class=o>(</span><span class=n>left</span> <span class=o>&gt;</span> <span class=n>cRight</span> <span class=o>||</span> <span class=n>right</span> <span class=o>&lt;</span> <span class=n>cLeft</span><span class=o>){</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=n>0</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>        <span class=o>}</span><span class=k>else</span> <span class=k>if</span><span class=o>(</span><span class=n>cLeft</span> <span class=o>&gt;=</span> <span class=n>left</span> <span class=o>&amp;&amp;</span> <span class=n>cRight</span> <span class=o>&lt;=</span> <span class=n>right</span><span class=o>){</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=n>tree</span><span class=o>[</span><span class=n>p</span><span class=o>];</span>
+</span></span><span class=line><span class=cl>        <span class=o>}</span><span class=k>else</span><span class=o>{</span>
+</span></span><span class=line><span class=cl>            <span class=kt>int</span> <span class=n>mid</span> <span class=o>=</span> <span class=n>cLeft</span> <span class=o>+</span> <span class=o>(</span><span class=n>cRight</span> <span class=o>-</span> <span class=n>cLeft</span> <span class=o>&gt;&gt;&gt;</span> <span class=n>1</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>            <span class=n>push_down</span><span class=o>(</span><span class=n>p</span><span class=o>,</span> <span class=n>cLeft</span><span class=o>,</span> <span class=n>mid</span><span class=o>,</span> <span class=n>cRight</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=n>query</span><span class=o>(</span><span class=n>left</span><span class=o>,</span> <span class=n>right</span><span class=o>,</span> <span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>1</span><span class=o>,</span> <span class=n>cLeft</span><span class=o>,</span> <span class=n>mid</span><span class=o>)</span> <span class=o>+</span> <span class=n>query</span><span class=o>(</span><span class=n>left</span><span class=o>,</span> <span class=n>right</span><span class=o>,</span> <span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>2</span><span class=o>,</span> <span class=n>mid</span> <span class=o>+</span> <span class=n>1</span><span class=o>,</span> <span class=n>cRight</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>        <span class=o>}</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kd>private</span> <span class=kt>void</span> <span class=nf>push_down</span><span class=o>(</span><span class=kt>int</span> <span class=n>p</span><span class=o>,</span> <span class=kt>int</span> <span class=n>cLeft</span><span class=o>,</span> <span class=kt>int</span> <span class=n>mid</span><span class=o>,</span> <span class=kt>int</span> <span class=n>cRight</span><span class=o>){</span>
+</span></span><span class=line><span class=cl>        <span class=n>mark</span><span class=o>[</span><span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>1</span><span class=o>]</span> <span class=o>+=</span> <span class=n>mark</span><span class=o>[</span><span class=n>p</span><span class=o>];</span>
+</span></span><span class=line><span class=cl>        <span class=n>mark</span><span class=o>[</span><span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>2</span><span class=o>]</span> <span class=o>+=</span> <span class=n>mark</span><span class=o>[</span><span class=n>p</span><span class=o>];</span>
+</span></span><span class=line><span class=cl>        <span class=n>tree</span><span class=o>[</span><span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>1</span><span class=o>]</span> <span class=o>+=</span> <span class=n>mark</span><span class=o>[</span><span class=n>p</span><span class=o>]</span> <span class=o>*</span> <span class=o>(</span><span class=n>mid</span> <span class=o>-</span> <span class=n>cLeft</span> <span class=o>+</span> <span class=n>1</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>        <span class=n>tree</span><span class=o>[</span><span class=n>p</span> <span class=o>*</span> <span class=n>2</span> <span class=o>+</span> <span class=n>2</span><span class=o>]</span> <span class=o>+=</span> <span class=n>mark</span><span class=o>[</span><span class=n>p</span><span class=o>]</span> <span class=o>*</span> <span class=o>(</span><span class=n>cRight</span> <span class=o>-</span> <span class=n>mid</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>        <span class=n>mark</span><span class=o>[</span><span class=n>p</span><span class=o>]</span> <span class=o>=</span> <span class=n>0</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>实际上线段树还可以维护区间最值、区间 $gcd$ 等等，操作除了区间加也可以是区间乘、区间赋值，了解原理后很容易改。</p></div><div class=post-footer id=post-footer>
+<div class=post-info>
+<div class=post-info-line>
+<div class=post-info-mod>
+<span title="2022-03-11 08:44:01">更新于 2022-03-11</span>
+</div><div class=post-info-license><span>CC BY-NC 4.0</span></div></div><div class=post-info-line>
+<div class=post-info-md></div><div class=post-info-share>
+<span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://wyxgoishin.github.io/%E5%88%9D%E8%AF%86%E7%BA%BF%E6%AE%B5%E6%A0%91/ data-title=初识线段树 data-hashtags=SegmentTree,DataStructure><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://wyxgoishin.github.io/%E5%88%9D%E8%AF%86%E7%BA%BF%E6%AE%B5%E6%A0%91/ data-title=初识线段树><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Reddit" data-sharer=reddit data-url=https://wyxgoishin.github.io/%E5%88%9D%E8%AF%86%E7%BA%BF%E6%AE%B5%E6%A0%91/><i class="fab fa-reddit fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://wyxgoishin.github.io/%E5%88%9D%E8%AF%86%E7%BA%BF%E6%AE%B5%E6%A0%91/ data-title=初识线段树><i data-svg-src=/lib/simple-icons/icons/line.min.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://wyxgoishin.github.io/%E5%88%9D%E8%AF%86%E7%BA%BF%E6%AE%B5%E6%A0%91/ data-title=初识线段树><i class="fab fa-weibo fa-fw"></i></a></span>
+</div></div></div><div class=post-info-more>
+<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/segmenttree/>线段树</a>,&nbsp;<a href=/tags/datastructure/>数据结构</a></section><section>
+<span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span>
+</section></div><div class=post-nav><a href=/%E5%88%A9%E7%94%A8-github-actions-%E6%9D%A5%E8%87%AA%E5%8A%A8%E5%8C%96-hugo-%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%83%A8%E7%BD%B2/ class=prev rel=prev title="利用 GitHub Actions 来自动化 Hugo 博客的部署"><i class="fas fa-angle-left fa-fw"></i>利用 GitHub Actions 来自动化 Hugo 博客的部署</a></div></div><div id=comments><div id=valine class=comment></div><noscript>
+Please enable JavaScript to view the comments powered by <a href=https://valine.js.org/ rel="external nofollow noopener noreffer">Valine</a>.
+</noscript></div></article></main><footer class=footer>
+<div class=footer-container><div class="footer-line powered">由 <a href=https://gohugo.io/ target=_blank rel="external nofollow noopener noreffer" title="Hugo 0.93.2">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/Lruihao/FixIt target=_blank rel="external nofollow noopener noreffer" title="FixIt 0.2.13"><img class=fixit-icon src=/images/fixit.svg alt="FixIt logo"> FixIt</a>
+</div><div class="footer-line copyright"><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2022</span><span class=footer-divider></span><span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div><div class="footer-line ibruce">
+<span id=busuanzi_container_site_uv title=总访客数><i class="far fa-user"></i>
+<span id=busuanzi_value_site_uv><i class="fa fa-spinner fa-spin"></i></span></span><span class="site-time footer-divider" title="网站运行中 ..."><i class="fas fa-heartbeat animate-icon"></i>
+<span class=run-times>Loading...</span></span><span id=busuanzi_container_site_pv class=footer-divider title=总访问量><i class="far fa-eye"></i>
+<span id=busuanzi_value_site_pv><i class="fa fa-spinner fa-spin"></i></span></span>
+</div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部>
+<i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title=查看评论>
+<i class="fas fa-comment fa-fw"></i>
+</a>
+</div><link rel=stylesheet href=/lib/valine/valine.min.css><link rel=stylesheet href=/lib/katex/katex.min.f7f9a1410c24a54e6890f7cce65d2fdcb9cff71b5ce892bc74a5b4fd69466947.css integrity="sha256-9/mhQQwkpU5okPfM5l0v3LnP9xtc6JK8dKW0/WlGaUc="><link rel=stylesheet href=/lib/katex/copy-tex.min.fa822dbe23da4e6aa30e1938cb87cb2d420c8114180d5fd9cab44dbd089e6d63.css integrity="sha256-+oItviPaTmqjDhk4y4fLLUIMgRQYDV/ZyrRNvQiebWM="><link rel=stylesheet href=/lib/mermaid/mermaid.min.e463b3e0a2a220b261e1a2983fda5b6b004281053152499dcbff70f548f8a7a6.css integrity="sha256-5GOz4KKiILJh4aKYP9pbawBCgQUxUkmdy/9w9Uj4p6Y="><link rel=stylesheet href=/lib/cookieconsent/cookieconsent.min.cd0d0b6e50ff01ff2f3a9a70d7cfb66a7c6cb9acf7a566325568be6d3bd31fc4.css integrity="sha256-zQ0LblD/Af8vOppw18+2anxsuaz3pWYyVWi+bTvTH8Q="><script type=text/javascript src=/lib/valine/Valine.min.99d5defc82c7a9a83c8b580b4c59d7917e394c5ce111efb7980900cce4798a5d.js integrity="sha256-mdXe/ILHqag8i1gLTFnXkX45TFzhEe+3mAkAzOR5il0="></script><script type=text/javascript src=/lib/autocomplete/autocomplete.min.ae2da1bd62c6469ee27770ad1cddf2e8296d8a7f6d85b091463e5200c5e320af.js integrity="sha256-ri2hvWLGRp7id3CtHN3y6Cltin9thbCRRj5SAMXjIK8=" defer></script><script type=text/javascript src=/lib/algoliasearch/algoliasearch-lite.umd.min.17f7126c772e27c099f01e7925f8a1625dd010e3e76d80dee31391b8486950a6.js integrity="sha256-F/cSbHcuJ8CZ8B55JfihYl3QEOPnbYDe4xORuEhpUKY=" defer></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.3d9120fa621da6d613c1698b7014ec6bdf4620366e8f2b7b547059f4b6f6272b.js integrity="sha256-PZEg+mIdptYTwWmLcBTsa99GIDZujyt7VHBZ9Lb2Jys=" async defer></script><script type=text/javascript src=/lib/clipboard/clipboard.min.11be927cda59c8b6019ebbea838285c5beaf21183ea4b83dbd4e4fbf9413ce4a.js integrity="sha256-Eb6SfNpZyLYBnrvqg4KFxb6vIRg+pLg9vU5Pv5QTzko=" defer></script><script type=text/javascript src=/lib/sharer/sharer.min.8fe10eb615eb163a20f795484430a012805ec7c8c11df52df54ddb7a46084254.js integrity="sha256-j+EOthXrFjog95VIRDCgEoBex8jBHfUt9U3bekYIQlQ=" async defer></script><script type=text/javascript src=/lib/katex/katex.min.717438b6c96d3b38a74b1a4daa73e574075fa6cb483d70432a28556fb71c64bd.js integrity="sha256-cXQ4tsltOzinSxpNqnPldAdfpstIPXBDKihVb7ccZL0=" defer></script><script type=text/javascript src=/lib/katex/auto-render.min.cb7f4ca60ed5dc3e258415f8c7a3b46d4a93578a52adf83011f18a7f190e7602.js integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI=" defer></script><script type=text/javascript src=/lib/katex/copy-tex.min.7ad4aa6d2545e3e2f07bc30693f55a9dcd6c47e996bfea8e1bbddfc56c3da7de.js integrity="sha256-etSqbSVF4+Lwe8MGk/Vanc1sR+mWv+qOG73fxWw9p94=" defer></script><script type=text/javascript src=/lib/katex/mhchem.min.5cea356d6025c5a2f18c454c83ec5674dbb04fab1cd1d75569e77788c6b6f888.js integrity="sha256-XOo1bWAlxaLxjEVMg+xWdNuwT6sc0ddVaed3iMa2+Ig=" defer></script><script type=text/javascript src=/lib/mermaid/mermaid.min.78ec8cffa1a22a739afae8b5cc73091f2a18adaab19ee1e65ff11debd57b4ce0.js integrity="sha256-eOyM/6GiKnOa+ui1zHMJHyoYraqxnuHmX/Ed69V7TOA="></script><script type=text/javascript src=/lib/cookieconsent/cookieconsent.min.e55842a856a6d829feca3c3ad736c136b6c7549e9247274f78aa296259e06e24.js integrity="sha256-5VhCqFam2Cn+yjw61zbBNrbHVJ6SRydPeKopYlngbiQ=" defer></script><script type=text/javascript src=/lib/pangu/pangu.min.8feca3e7a71d118d82c2456d1b2cf5f1f3726c51a930627c2711b7192c8edbe2.js integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" defer></script><script type=text/javascript src=/lib/cell-watermark/watermark.min.8518c89a43d8bcbcf981bbd3d6364ce91a5142b15e0e584e2a39dc36661d6b13.js integrity="sha256-hRjImkPYvLz5gbvT1jZM6RpRQrFeDlhOKjncNmYdaxM=" defer></script><script type=text/javascript src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js async defer></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",editLockTitle:"锁定可编辑代码块",editUnLockTitle:"解锁可编辑代码块",editable:!0,maxShownLines:10},comment:{valine:{appId:"xsjy5e8HXAcuQ7dczL0v9bPL-MdYXbMMI",appKey:"hkeBqgu95lcpl4KhUEJ8HB2a",avatar:"mp",el:"#valine",emojiCDN:"https://cdn.jsdelivr.net/npm/emoji-datasource-google@5.0.1/img/google/64/",emojiMaps:{100:"1f4af.png",alien:"1f47d.png",anger:"1f4a2.png",angry:"1f620.png",anguished:"1f627.png",astonished:"1f632.png",black_heart:"1f5a4.png",blue_heart:"1f499.png",blush:"1f60a.png",bomb:"1f4a3.png",boom:"1f4a5.png",broken_heart:"1f494.png",brown_heart:"1f90e.png",clown_face:"1f921.png",cold_face:"1f976.png",cold_sweat:"1f630.png",confounded:"1f616.png",confused:"1f615.png",cry:"1f622.png",crying_cat_face:"1f63f.png",cupid:"1f498.png",dash:"1f4a8.png",disappointed:"1f61e.png",disappointed_relieved:"1f625.png",dizzy:"1f4ab.png",dizzy_face:"1f635.png",drooling_face:"1f924.png",exploding_head:"1f92f.png",expressionless:"1f611.png",face_vomiting:"1f92e.png",face_with_cowboy_hat:"1f920.png",face_with_hand_over_mouth:"1f92d.png",face_with_head_bandage:"1f915.png",face_with_monocle:"1f9d0.png",face_with_raised_eyebrow:"1f928.png",face_with_rolling_eyes:"1f644.png",face_with_symbols_on_mouth:"1f92c.png",face_with_thermometer:"1f912.png",fearful:"1f628.png",flushed:"1f633.png",frowning:"1f626.png",ghost:"1f47b.png",gift_heart:"1f49d.png",green_heart:"1f49a.png",grimacing:"1f62c.png",grin:"1f601.png",grinning:"1f600.png",hankey:"1f4a9.png",hear_no_evil:"1f649.png",heart:"2764-fe0f.png",heart_decoration:"1f49f.png",heart_eyes:"1f60d.png",heart_eyes_cat:"1f63b.png",heartbeat:"1f493.png",heartpulse:"1f497.png",heavy_heart_exclamation_mark_ornament:"2763-fe0f.png",hole:"1f573-fe0f.png",hot_face:"1f975.png",hugging_face:"1f917.png",hushed:"1f62f.png",imp:"1f47f.png",innocent:"1f607.png",japanese_goblin:"1f47a.png",japanese_ogre:"1f479.png",joy:"1f602.png",joy_cat:"1f639.png",kiss:"1f48b.png",kissing:"1f617.png",kissing_cat:"1f63d.png",kissing_closed_eyes:"1f61a.png",kissing_heart:"1f618.png",kissing_smiling_eyes:"1f619.png",laughing:"1f606.png",left_speech_bubble:"1f5e8-fe0f.png",love_letter:"1f48c.png",lying_face:"1f925.png",mask:"1f637.png",money_mouth_face:"1f911.png",nauseated_face:"1f922.png",nerd_face:"1f913.png",neutral_face:"1f610.png",no_mouth:"1f636.png",open_mouth:"1f62e.png",orange_heart:"1f9e1.png",partying_face:"1f973.png",pensive:"1f614.png",persevere:"1f623.png",pleading_face:"1f97a.png",pouting_cat:"1f63e.png",purple_heart:"1f49c.png",rage:"1f621.png",relaxed:"263a-fe0f.png",relieved:"1f60c.png",revolving_hearts:"1f49e.png",right_anger_bubble:"1f5ef-fe0f.png",robot_face:"1f916.png",rolling_on_the_floor_laughing:"1f923.png",scream:"1f631.png",scream_cat:"1f640.png",see_no_evil:"1f648.png",shushing_face:"1f92b.png",skull:"1f480.png",skull_and_crossbones:"2620-fe0f.png",sleeping:"1f634.png",sleepy:"1f62a.png",slightly_frowning_face:"1f641.png",slightly_smiling_face:"1f642.png",smile:"1f604.png",smile_cat:"1f638.png",smiley:"1f603.png",smiley_cat:"1f63a.png",smiling_face_with_3_hearts:"1f970.png",smiling_imp:"1f608.png",smirk:"1f60f.png",smirk_cat:"1f63c.png",sneezing_face:"1f927.png",sob:"1f62d.png",space_invader:"1f47e.png",sparkling_heart:"1f496.png",speak_no_evil:"1f64a.png",speech_balloon:"1f4ac.png","star-struck":"1f929.png",stuck_out_tongue:"1f61b.png",stuck_out_tongue_closed_eyes:"1f61d.png",stuck_out_tongue_winking_eye:"1f61c.png",sunglasses:"1f60e.png",sweat:"1f613.png",sweat_drops:"1f4a6.png",sweat_smile:"1f605.png",thinking_face:"1f914.png",thought_balloon:"1f4ad.png",tired_face:"1f62b.png",triumph:"1f624.png",two_hearts:"1f495.png",unamused:"1f612.png",upside_down_face:"1f643.png",weary:"1f629.png",white_frowning_face:"2639-fe0f.png",white_heart:"1f90d.png",wink:"1f609.png",woozy_face:"1f974.png",worried:"1f61f.png",yawning_face:"1f971.png",yellow_heart:"1f49b.png",yum:"1f60b.png",zany_face:"1f92a.png",zipper_mouth_face:"1f910.png",zzz:"1f4a4.png"},enableQQ:!1,highlight:!0,lang:"zh-cn",pageSize:10,placeholder:"你的评论 ...",recordIP:!0,serverURLs:"https://xsjy5e8h.api.lncldglobal.com",visitor:!0}},cookieconsent:{content:{dismiss:"同意",link:"了解更多",message:"本网站使用 Cookies 来改善您的浏览体验."},enable:!0,palette:{button:{background:"#f0f0f0"},popup:{background:"#1aa3ff"}},theme:"edgeless"},data:{"id-1":"stateDiagram\n[1,5]--\u003e[1,3]\n\n[1,5]--\u003e[4,5]\n\n[1,3]--\u003e[1,2]\n\n[1,3]--\u003e[3,3]\n\n[4,5]--\u003e[4,4]\n\n[4,5]--\u003e[5,5]\n\n[1,2]--\u003e[1,1]\n\n[1,2]--\u003e[2,2]","id-2":"stateDiagram\n[1,5]--\u003e[1,2]\n\n[1,5]--\u003e[3,5]\n\n[1,2]--\u003e[1,1]\n\n[1,2]--\u003e[2,2]\n\n[3,5]--\u003e[3,3]\n\n[3,5]--\u003e[4,5]\n\n[4,5]--\u003e[4,4]\n\n[4,5]--\u003e[5,5]"},enablePWA:!0,enablePangu:!0,ibruce:{enable:!0,siteTime:"2022-03-08T00:00:00+08:00"},math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},search:{algoliaAppID:"85AJU4PL9U",algoliaIndex:"index.zh-cn",algoliaSearchKey:"d0788fa68b24a919c3ffffd207d35c57",highlightTag:"em",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50,type:"algolia"},watermark:{content:'\u003cimg class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" /\u003e FixIt 主题',enable:!0,height:21,opacity:.02}}</script><script type=text/javascript src=/js/theme.min.ac2bd145af726c9602ad02fe43bea4033361de2638eac7be582abc53ea81a7a6.js integrity="sha256-rCvRRa9ybJYCrQL+Q76kAzNh3iY46se+WCq8U+qBp6Y=" defer></script><script type=text/javascript src=/js/_custom.min.013b2422199dab96da7b31e03098ff526822d0af5082f54183653e32e720707a.js integrity="sha256-ATskIhmdq5baezHgMJj/Umgi0K9QgvVBg2U+MucgcHo=" defer></script></body></html>
