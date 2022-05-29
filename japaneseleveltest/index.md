@@ -3,7 +3,7 @@
 
 <!--more--> 
 
-<div id="question_box" style="margin: 10px 30%; color:black; height:50%; width:50%; background-color:rgb(204, 232, 207);">
+<div id="question_box" style="margin: 10px 30%; color:black; height:50%; background-color:rgb(204, 232, 207);">
     <div style="text-align:center; font-size:large; margin-bottom: 10px; background-color: white">您当前的得分为：<span id="score">100</span></div>
     <div style="text-align:center; margin-bottom:10px; background-color: rgb(41, 36, 33); color:white">
         <span>请选择题目难度：</span>
@@ -38,7 +38,6 @@
     </div>
     <div style="height:5px"></div>
 </div>
-
 {{< script >}}
 alert("欢迎游玩「語彙力診断」！本游戏初始得分为 100，一共有 6 个游戏难度等级可以选择，每次切换难度消耗 100 得分。每次答题成功获得 10 得分，反之扣除 10 得分。若得分小于 0，则结束游戏。希望您玩得高兴！")
 let question = {qLevel: 1, qType:3, qAns: 2, qIndex: 25};
