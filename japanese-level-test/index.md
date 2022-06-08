@@ -178,7 +178,7 @@ jlt.get_nxt_question = function(ans_idx, level){
 		let tagName = "QuestionSelection" + i;
 		jlt.question_selections[i - 1].innerHTML = nxt_question.getElementsByTagName(tagName)[0].textContent.replaceAll("[", "<").replaceAll("]", ">");
 	}
-
+	
 	jlt.refresh_rbt();
 }
 
