@@ -1,6 +1,8 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Blog of wyxgoishin",
+    "short_name": "Blog of wyxgoishin",
+	"start_url": "/",
+	"description": "Blog of wyxgoishin powered by hugo and fixit",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -11,6 +13,12 @@
             "src": "/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
+        },
+		{
+            "src": "/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png",
+			"purpose": "any maskable"
         }
     ],
     "theme_color": "#ffffff",
