@@ -1,8 +1,11 @@
 {
     "name": "Blog of wyxgoishin",
     "short_name": "Blog of wyxgoishin",
-	"start_url": "/",
-	"description": "Blog of wyxgoishin powered by hugo and fixit",
+    "start_url": "/",
+    "description": "Blog of wyxgoishin powered by hugo and fixit",
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -18,10 +21,7 @@
             "src": "/apple-touch-icon.png",
             "sizes": "180x180",
             "type": "image/png",
-			"purpose": "any maskable"
+            "purpose": "any maskable"
         }
-    ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
-    "display": "standalone"
+    ]
 }
