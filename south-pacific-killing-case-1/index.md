@@ -14,8 +14,8 @@
 #  作品目录
 
 0. [序章——1977年 大溪地](/south-pacific-killing-case-1)
-1. 第一章——1977年 八丈岛
-   - 诱惑的夜晚
+1. [第一章——1977年 八丈岛](/south-pacific-killing-case-2)
+   - [诱惑的夜晚](/south-pacific-killing-case-2)
    - 美味的面包
    - 血色玛丽
    - 错认的乐观者
@@ -228,5 +228,7 @@
   「救救我——」
 
   呼救数次后的明梨的前方，是依旧不断画圈的黑色鱼鳍。
+
+[下集精彩继续——————>](/south-pacific-killing-case-2)
 
 
