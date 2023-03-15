@@ -47,7 +47,7 @@
   <array>
     <WordsListIndex>4</WordsListIndex>
     <WordsText>挙げる（あげる）</WordsText>
-    <WordsMean>［動］①取り出してしめす。並べしめす。[BR]②大ぜいの前で行う。[BR]③上のほうへのばす。⇔下ろす。[BR]④全部を出しつくす。[BR]⑤悪いことや悪いことをした人を見つけ出す。とらえる。</WordsMean>
+    <WordsMean>［動］①取り出してしめす。並べしめす。②大ぜいの前で行う。③上のほうへのばす。⇔下ろす。④全部を出しつくす。⑤悪いことや悪いことをした人を見つけ出す。とらえる。</WordsMean>
     <WordsExample1>例を挙げる。</WordsExample1>
     <WordsExample2>結婚式を挙げる。</WordsExample2>
     <WordsExample3>手を挙げる。</WordsExample3>
@@ -69,7 +69,7 @@
   <array>
     <WordsListIndex>6</WordsListIndex>
     <WordsText>鮮やか（あざやか）</WordsText>
-    <WordsMean>［形動］①色などがはっきりしてめだつようす。[BR]②やり方などがすばらしいようす。てぎわがよいようす。</WordsMean>
+    <WordsMean>［形動］①色などがはっきりしてめだつようす。②やり方などがすばらしいようす。てぎわがよいようす。</WordsMean>
     <WordsExample1>鮮やかな緑。</WordsExample1>
     <WordsExample2>鮮やかなわざ。</WordsExample2>
     <WordsExample3/>
@@ -146,7 +146,7 @@
   <array>
     <WordsListIndex>13</WordsListIndex>
     <WordsText>改めて（あらためて）</WordsText>
-    <WordsMean>［副］①また。こんど。[BR]②わざわざ。いまさら。</WordsMean>
+    <WordsMean>［副］①また。こんど。②わざわざ。いまさら。</WordsMean>
     <WordsExample1>改めてうかがいます。</WordsExample1>
     <WordsExample2>改めて言うまでもない。</WordsExample2>
     <WordsExample3/>
@@ -157,7 +157,7 @@
   <array>
     <WordsListIndex>14</WordsListIndex>
     <WordsText>淡い（あわい）</WordsText>
-    <WordsMean>［形容］①色や味や物の形などが、うすくてはっきりしない。[BR]②かすかである。</WordsMean>
+    <WordsMean>［形容］①色や味や物の形などが、うすくてはっきりしない。②かすかである。</WordsMean>
     <WordsExample1>淡い星の光。</WordsExample1>
     <WordsExample2>淡いのぞみをもってさがす。</WordsExample2>
     <WordsExample3/>
@@ -179,7 +179,7 @@
   <array>
     <WordsListIndex>16</WordsListIndex>
     <WordsText>安定（あんてい）</WordsText>
-    <WordsMean>［名・－する］①落ち着いていて、あまり変化がないこと。⇔変動。[BR]②すわりがよいこと。</WordsMean>
+    <WordsMean>［名・－する］①落ち着いていて、あまり変化がないこと。⇔変動。②すわりがよいこと。</WordsMean>
     <WordsExample1>物価が安定する。</WordsExample1>
     <WordsExample2>このいすは安定がよい。</WordsExample2>
     <WordsExample3/>
@@ -212,7 +212,7 @@
   <array>
     <WordsListIndex>19</WordsListIndex>
     <WordsText>いかに</WordsText>
-    <WordsMean>［副］①どのように。どんなふうに。[BR]②どんなに。いくら。②はあとに「ても」「でも」などがつく。</WordsMean>
+    <WordsMean>［副］①どのように。どんなふうに。②どんなに。いくら。②はあとに「ても」「でも」などがつく。</WordsMean>
     <WordsExample1>この問題をいかにすべきか。</WordsExample1>
     <WordsExample2>いかに苦しくても最後までやり通せ。</WordsExample2>
     <WordsExample3/>
@@ -256,7 +256,7 @@
   <array>
     <WordsListIndex>23</WordsListIndex>
     <WordsText>いずれ</WordsText>
-    <WordsMean>＜品詞①＞［代名］どれ。どちら。[BR]＜品詞②＞［副］どうせ。けっきょく。</WordsMean>
+    <WordsMean>＜品詞①＞［代名］どれ。どちら。＜品詞②＞［副］どうせ。けっきょく。</WordsMean>
     <WordsExample1>いずれが強いかわからない。</WordsExample1>
     <WordsExample2>いずれこうなるだろうということはわかっていた。</WordsExample2>
     <WordsExample3/>
@@ -267,7 +267,7 @@
   <array>
     <WordsListIndex>24</WordsListIndex>
     <WordsText>偉大（いだい）</WordsText>
-    <WordsMean>［形動］①すぐれていて、りっぱなこと。[BR]②大きくて、りっぱなこと。</WordsMean>
+    <WordsMean>［形動］①すぐれていて、りっぱなこと。②大きくて、りっぱなこと。</WordsMean>
     <WordsExample1>リンカーンは偉大な政治家だった。</WordsExample1>
     <WordsExample2>ピラミッドは偉大なはかです。</WordsExample2>
     <WordsExample3/>
@@ -278,7 +278,7 @@
   <array>
     <WordsListIndex>25</WordsListIndex>
     <WordsText>至る（いたる）</WordsText>
-    <WordsMean>［動］①ある所に行き着く。[BR]②ある状態・時期になる。</WordsMean>
+    <WordsMean>［動］①ある所に行き着く。②ある状態・時期になる。</WordsMean>
     <WordsExample1>この道は東京に至る。</WordsExample1>
     <WordsExample2>きょうに至るまで返事がない。</WordsExample2>
     <WordsExample3/>
@@ -311,7 +311,7 @@
   <array>
     <WordsListIndex>28</WordsListIndex>
     <WordsText>一人前（いちにんまえ）</WordsText>
-    <WordsMean>＜品詞①＞［名］ひとり分の分量。[BR]＜品詞②＞［名・形動］①おとなと同じような考えや力のあること。[BR]②人並みのうでを持っていること。</WordsMean>
+    <WordsMean>＜品詞①＞［名］ひとり分の分量。＜品詞②＞［名・形動］①おとなと同じような考えや力のあること。②人並みのうでを持っていること。</WordsMean>
     <WordsExample1>さしみ一人前。</WordsExample1>
     <WordsExample2>むすこもようやく一人前になった。</WordsExample2>
     <WordsExample3>コックとして一人前になる。</WordsExample3>
@@ -366,7 +366,7 @@
   <array>
     <WordsListIndex>33</WordsListIndex>
     <WordsText>飢える（うえる）</WordsText>
-    <WordsMean>［動］①食べ物がなくて、おなかがひどくすく。[BR]②心がみたされず、強くもとめる。</WordsMean>
+    <WordsMean>［動］①食べ物がなくて、おなかがひどくすく。②心がみたされず、強くもとめる。</WordsMean>
     <WordsExample1>飢えた難民。</WordsExample1>
     <WordsExample2>母の愛に飢える。</WordsExample2>
     <WordsExample3/>
@@ -377,7 +377,7 @@
   <array>
     <WordsListIndex>34</WordsListIndex>
     <WordsText>疑う（うたがう）</WordsText>
-    <WordsMean>［動］①あやしいと思う。⇔信じる。[BR]②どうだろうかと不安に思う[BR]③正しくないのではないかと思う。</WordsMean>
+    <WordsMean>［動］①あやしいと思う。⇔信じる。②どうだろうかと不安に思う③正しくないのではないかと思う。</WordsMean>
     <WordsExample1>犯人ではないかと疑う。</WordsExample1>
     <WordsExample2>うまくいくかどうかを疑う。</WordsExample2>
     <WordsExample3>疑う余地はない。</WordsExample3>
@@ -388,7 +388,7 @@
   <array>
     <WordsListIndex>35</WordsListIndex>
     <WordsText>訴える（うったえる）</WordsText>
-    <WordsMean>［動］①裁判をしてくれるようにねがい出る。[BR]②不平やいたみなどを人に言う。[BR]③ある方法を用いる。[BR]④人の心によびかける。</WordsMean>
+    <WordsMean>［動］①裁判をしてくれるようにねがい出る。②不平やいたみなどを人に言う。③ある方法を用いる。④人の心によびかける。</WordsMean>
     <WordsExample1>父に不平を訴える。</WordsExample1>
     <WordsExample2>暴力に訴えるのはやめよう。</WordsExample2>
     <WordsExample3>人びとに平和を訴える。</WordsExample3>
@@ -553,7 +553,7 @@
   <array>
     <WordsListIndex>50</WordsListIndex>
     <WordsText>延長（えんちょう）</WordsText>
-    <WordsMean>＜品詞①＞［名・－する］時間や長さなどをのばすこと。また、のびること。⇔短縮。[BR]＜品詞②＞［名］①つながりのあること。[BR]②全体の長さ。</WordsMean>
+    <WordsMean>＜品詞①＞［名・－する］時間や長さなどをのばすこと。また、のびること。⇔短縮。＜品詞②＞［名］①つながりのあること。②全体の長さ。</WordsMean>
     <WordsExample1>勉強の時間を延長する。</WordsExample1>
     <WordsExample2>遠足も授業の延長だ。</WordsExample2>
     <WordsExample3>延長1万キロメートル。</WordsExample3>
@@ -575,7 +575,7 @@
   <array>
     <WordsListIndex>52</WordsListIndex>
     <WordsText>往復（おうふく）</WordsText>
-    <WordsMean>［名・－する］①行ったり来たりすること。行きと帰り。⇔片道。[BR]②やりとり。</WordsMean>
+    <WordsMean>［名・－する］①行ったり来たりすること。行きと帰り。⇔片道。②やりとり。</WordsMean>
     <WordsExample1>家と学校を往復する。</WordsExample1>
     <WordsExample2>ふたりの間に手紙が往復する。</WordsExample2>
     <WordsExample3/>
@@ -685,7 +685,7 @@
   <array>
     <WordsListIndex>62</WordsListIndex>
     <WordsText>穏やか（おだやか）</WordsText>
-    <WordsMean>［形動］①のどかで、しずかなようす。[BR]②落ち着いて、心がゆったりしているようす。</WordsMean>
+    <WordsMean>［形動］①のどかで、しずかなようす。②落ち着いて、心がゆったりしているようす。</WordsMean>
     <WordsExample1>風もなく穏やかな天気。</WordsExample1>
     <WordsExample2>先生は穏やかな人がらだ。</WordsExample2>
     <WordsExample3/>
@@ -707,7 +707,7 @@
   <array>
     <WordsListIndex>64</WordsListIndex>
     <WordsText>訪れる（おとずれる）</WordsText>
-    <WordsMean>［動］①たずねる。訪問する。[BR]②やって来る。</WordsMean>
+    <WordsMean>［動］①たずねる。訪問する。②やって来る。</WordsMean>
     <WordsExample1>友だちの家を訪れる。</WordsExample1>
     <WordsExample2>寒い冬が訪れる。</WordsExample2>
     <WordsExample3/>
@@ -740,7 +740,7 @@
   <array>
     <WordsListIndex>67</WordsListIndex>
     <WordsText>衰える（おとろえる）</WordsText>
-    <WordsMean>［動］①いきおいがなくなる。よわる。[BR]②にぎやかでなくなる。⇔栄える。</WordsMean>
+    <WordsMean>［動］①いきおいがなくなる。よわる。②にぎやかでなくなる。⇔栄える。</WordsMean>
     <WordsExample1>からだが衰える。</WordsExample1>
     <WordsExample2>町が衰える。</WordsExample2>
     <WordsExample3/>
@@ -773,7 +773,7 @@
   <array>
     <WordsListIndex>70</WordsListIndex>
     <WordsText>重荷（おもに）</WordsText>
-    <WordsMean>［名］①重い荷物。[BR]②自分の能力以上の仕事や役目。</WordsMean>
+    <WordsMean>［名］①重い荷物。②自分の能力以上の仕事や役目。</WordsMean>
     <WordsExample1>この仕事は、ぼくには重荷だ。</WordsExample1>
     <WordsExample2/>
     <WordsExample3/>
@@ -839,7 +839,7 @@
   <array>
     <WordsListIndex>76</WordsListIndex>
     <WordsText>開発（かいはつ）</WordsText>
-    <WordsMean>［名・－する］①土地などを切り開いて、産業をおこすこと。[BR]②研究や実験などを進め実際に役立つようにする。</WordsMean>
+    <WordsMean>［名・－する］①土地などを切り開いて、産業をおこすこと。②研究や実験などを進め実際に役立つようにする。</WordsMean>
     <WordsExample1>国土開発。</WordsExample1>
     <WordsExample2>新しい薬を開発する</WordsExample2>
     <WordsExample3/>
@@ -883,7 +883,7 @@
   <array>
     <WordsListIndex>80</WordsListIndex>
     <WordsText>かしこまる</WordsText>
-    <WordsMean>［動］①相手に対してつつしんだ態度をとる。[BR]②きちんとすわる。[BR]③「しょうちする」のへりくだった言い方。</WordsMean>
+    <WordsMean>［動］①相手に対してつつしんだ態度をとる。②きちんとすわる。③「しょうちする」のへりくだった言い方。</WordsMean>
     <WordsExample1>かしこまって話を聞く。</WordsExample1>
     <WordsExample2>かしこまらず、楽にしてください。</WordsExample2>
     <WordsExample3>はい、かしこまりました。</WordsExample3>
@@ -916,7 +916,7 @@
   <array>
     <WordsListIndex>83</WordsListIndex>
     <WordsText>仮に（かりに）</WordsText>
-    <WordsMean>［副］①まにあわせに。[BR]②もし。もしも。たとえ。②は、あとに「たら」「ても」などのことばがくる。</WordsMean>
+    <WordsMean>［副］①まにあわせに。②もし。もしも。たとえ。②は、あとに「たら」「ても」などのことばがくる。</WordsMean>
     <WordsExample1>家ができるまで仮にアパートに住む。</WordsExample1>
     <WordsExample2>仮に雨が降らないとしたら、われわれの生活はどうなるだろう。仮に今から行っても、間に合わないでしょう。</WordsExample2>
     <WordsExample3/>
@@ -1070,7 +1070,7 @@
   <array>
     <WordsListIndex>97</WordsListIndex>
     <WordsText>基準（きじゅん）</WordsText>
-    <WordsMean>［名］物ごとのもとになるもの。よりどころ。[BR]＜似たことば＞標準。</WordsMean>
+    <WordsMean>［名］物ごとのもとになるもの。よりどころ。＜似たことば＞標準。</WordsMean>
     <WordsExample1>1日1ページを基準にして本を読む。</WordsExample1>
     <WordsExample2/>
     <WordsExample3/>
@@ -1081,7 +1081,7 @@
   <array>
     <WordsListIndex>98</WordsListIndex>
     <WordsText>基礎（きそ）</WordsText>
-    <WordsMean>［名］①たてものの土台。[BR]②物ごとのおおもと・はじめ。</WordsMean>
+    <WordsMean>［名］①たてものの土台。②物ごとのおおもと・はじめ。</WordsMean>
     <WordsExample1>家の基礎工事。</WordsExample1>
     <WordsExample2>国語はすべての勉強の基礎となる。</WordsExample2>
     <WordsExample3/>
@@ -1147,7 +1147,7 @@
   <array>
     <WordsListIndex>104</WordsListIndex>
     <WordsText>厳しい（きびしい）</WordsText>
-    <WordsMean>［形容］①いいかげんなことをゆるさない。げんかくである。[BR]②ひどい。はなはだしい。＜似たことば＞きつい。</WordsMean>
+    <WordsMean>［形容］①いいかげんなことをゆるさない。げんかくである。②ひどい。はなはだしい。＜似たことば＞きつい。</WordsMean>
     <WordsExample1>厳しい検査。</WordsExample1>
     <WordsExample2>寒さが厳しい。</WordsExample2>
     <WordsExample3/>
@@ -1213,7 +1213,7 @@
   <array>
     <WordsListIndex>110</WordsListIndex>
     <WordsText>吸収（きゅうしゅう）</WordsText>
-    <WordsMean>［名・－する］①すいとること。[BR]②身につけること。取り入れること。</WordsMean>
+    <WordsMean>［名・－する］①すいとること。②身につけること。取り入れること。</WordsMean>
     <WordsExample1>根は地中の水分や養分を吸収する。</WordsExample1>
     <WordsExample2>広い知識を吸収する。</WordsExample2>
     <WordsExample3/>
@@ -1224,7 +1224,7 @@
   <array>
     <WordsListIndex>111</WordsListIndex>
     <WordsText>救助（きゅうじょ）</WordsText>
-    <WordsMean>［名・－する］すくい出して助けること。[BR]＜似たことば＞救援。</WordsMean>
+    <WordsMean>［名・－する］すくい出して助けること。＜似たことば＞救援。</WordsMean>
     <WordsExample1>けが人を救助する。</WordsExample1>
     <WordsExample2/>
     <WordsExample3/>
@@ -1268,7 +1268,7 @@
   <array>
     <WordsListIndex>115</WordsListIndex>
     <WordsText>共同（きょうどう）</WordsText>
-    <WordsMean>［名・－する］①みんなが同じ目的をもってなにかをすること。[BR]②みんなが同じ資格や条件でなにかをすること。</WordsMean>
+    <WordsMean>［名・－する］①みんなが同じ目的をもってなにかをすること。②みんなが同じ資格や条件でなにかをすること。</WordsMean>
     <WordsExample1>共同募金。</WordsExample1>
     <WordsExample2>トイレを共同で使う。</WordsExample2>
     <WordsExample3/>
@@ -1532,7 +1532,7 @@
   <array>
     <WordsListIndex>139</WordsListIndex>
     <WordsText>傑作（けっさく）</WordsText>
-    <WordsMean>＜品詞①＞［名］すぐれた作品。よいできばえ。[BR]＜品詞②＞［形動］きみょうでおかしいようす。</WordsMean>
+    <WordsMean>＜品詞①＞［名］すぐれた作品。よいできばえ。＜品詞②＞［形動］きみょうでおかしいようす。</WordsMean>
     <WordsExample1>「坊っちゃん」は夏目漱石の傑作の一つです。</WordsExample1>
     <WordsExample2>そそっかしい弟が、また傑作なことをやり、みな大わらいした。</WordsExample2>
     <WordsExample3/>
@@ -1576,7 +1576,7 @@
   <array>
     <WordsListIndex>143</WordsListIndex>
     <WordsText>険しい（けわしい）</WordsText>
-    <WordsMean>［形容］①かたむきが急である。[BR]②あらあらしく激しい。きつい。[BR]③危険や困難がありそうなようす。</WordsMean>
+    <WordsMean>［形容］①かたむきが急である。②あらあらしく激しい。きつい。③危険や困難がありそうなようす。</WordsMean>
     <WordsExample1>険しい坂道。</WordsExample1>
     <WordsExample2>険しい顔つき。</WordsExample2>
     <WordsExample3>行く手は険しい。</WordsExample3>
@@ -1675,7 +1675,7 @@
   <array>
     <WordsListIndex>152</WordsListIndex>
     <WordsText>効果（こうか）</WordsText>
-    <WordsMean>［名］①できばえ。[BR]②ききめ。しるし。[BR]③映画・劇などで、音・音楽・照明などを使って、その場の感じを出すこと。</WordsMean>
+    <WordsMean>［名］①できばえ。②ききめ。しるし。③映画・劇などで、音・音楽・照明などを使って、その場の感じを出すこと。</WordsMean>
     <WordsExample1>やっと勉強した効果が出てきた。</WordsExample1>
     <WordsExample2/>
     <WordsExample3/>
@@ -1796,7 +1796,7 @@
   <array>
     <WordsListIndex>163</WordsListIndex>
     <WordsText>合流（ごうりゅう）</WordsText>
-    <WordsMean>［名・－する］①二つ以上の川がいっしょになって一つの流れになること。[BR]②二つ、またはそれ以上のものが合わさって一つにまとまること。</WordsMean>
+    <WordsMean>［名・－する］①二つ以上の川がいっしょになって一つの流れになること。②二つ、またはそれ以上のものが合わさって一つにまとまること。</WordsMean>
     <WordsExample1>4年生が5年生に合流して遠足に行く。</WordsExample1>
     <WordsExample2/>
     <WordsExample3/>
@@ -1895,7 +1895,7 @@
   <array>
     <WordsListIndex>172</WordsListIndex>
     <WordsText>故障（こしょう）</WordsText>
-    <WordsMean>［名・－する］①機械やからだの調子が悪くなること。[BR]②さしつかえ。さしさわり。</WordsMean>
+    <WordsMean>［名・－する］①機械やからだの調子が悪くなること。②さしつかえ。さしさわり。</WordsMean>
     <WordsExample1>テレビが故障する。足の故障で休場する。</WordsExample1>
     <WordsExample2>故障ができて中止する。</WordsExample2>
     <WordsExample3/>
@@ -1939,7 +1939,7 @@
   <array>
     <WordsListIndex>176</WordsListIndex>
     <WordsText>断る（ことわる）</WordsText>
-    <WordsMean>［動］①受けつけない。[BR]②前もって知らせておく。</WordsMean>
+    <WordsMean>［動］①受けつけない。②前もって知らせておく。</WordsMean>
     <WordsExample1>友だちのたのみを断る。</WordsExample1>
     <WordsExample2>先生に断って欠席する。</WordsExample2>
     <WordsExample3/>
@@ -2104,7 +2104,7 @@
   <array>
     <WordsListIndex>191</WordsListIndex>
     <WordsText>悟る（さとる）</WordsText>
-    <WordsMean>［動］①物ごとの道理をはっきり知る。見ぬく。感づく。[BR]②仏教で、なやみやまよいがとけて道理がわかる。</WordsMean>
+    <WordsMean>［動］①物ごとの道理をはっきり知る。見ぬく。感づく。②仏教で、なやみやまよいがとけて道理がわかる。</WordsMean>
     <WordsExample1>自分のまちがいを悟る。</WordsExample1>
     <WordsExample2/>
     <WordsExample3/>
@@ -2159,7 +2159,7 @@
   <array>
     <WordsListIndex>196</WordsListIndex>
     <WordsText>冷める（さめる）</WordsText>
-    <WordsMean>［動］①つめたくなる。ひえる。[BR]②高まった気持ちが弱まる。</WordsMean>
+    <WordsMean>［動］①つめたくなる。ひえる。②高まった気持ちが弱まる。</WordsMean>
     <WordsExample1>早く食べないとごはんが冷める。</WordsExample1>
     <WordsExample2>野球に対する熱が冷める。</WordsExample2>
     <WordsExample3/>
@@ -2225,7 +2225,7 @@
   <array>
     <WordsListIndex>202</WordsListIndex>
     <WordsText>刺激（しげき）</WordsText>
-    <WordsMean>［名・－する］①人のからだに、強い感じをあたえること。[BR]②人の気持ちをふるいたたせること。興奮させること。</WordsMean>
+    <WordsMean>［名・－する］①人のからだに、強い感じをあたえること。②人の気持ちをふるいたたせること。興奮させること。</WordsMean>
     <WordsExample1>刺激の強い薬。赤い色は見る人を強く刺激する。</WordsExample1>
     <WordsExample2>リンカーンの伝記に刺激されて、りっぱな人間になろうと決心した。</WordsExample2>
     <WordsExample3/>
@@ -2247,7 +2247,7 @@
   <array>
     <WordsListIndex>204</WordsListIndex>
     <WordsText>事実（じじつ）</WordsText>
-    <WordsMean>＜品詞①＞［名］ほんとうのこと。実際にあったこと。[BR]＜品詞②＞［副］ほんとうに。</WordsMean>
+    <WordsMean>＜品詞①＞［名］ほんとうのこと。実際にあったこと。＜品詞②＞［副］ほんとうに。</WordsMean>
     <WordsExample1>事実をありのままに話す。事実がなによりたいせつです。</WordsExample1>
     <WordsExample2>事実、ぼくはなにも知らない。</WordsExample2>
     <WordsExample3/>
@@ -2258,7 +2258,7 @@
   <array>
     <WordsListIndex>205</WordsListIndex>
     <WordsText>事情（じじょう）</WordsText>
-    <WordsMean>［名］①物ごとのわけ。[BR]②ようす。</WordsMean>
+    <WordsMean>［名］①物ごとのわけ。②ようす。</WordsMean>
     <WordsExample1>家の事情で学校を休む。</WordsExample1>
     <WordsExample2>父は中国の事情にくわしい。</WordsExample2>
     <WordsExample3/>
@@ -2346,7 +2346,7 @@
   <array>
     <WordsListIndex>213</WordsListIndex>
     <WordsText>しなやか</WordsText>
-    <WordsMean>［形動］①ごつごつしないでやわらかなようす。[BR]②やわらかくて美しいようす。[BR]③やわらかく曲がるようす。</WordsMean>
+    <WordsMean>［形動］①ごつごつしないでやわらかなようす。②やわらかくて美しいようす。③やわらかく曲がるようす。</WordsMean>
     <WordsExample1>しなやかなからだつき。</WordsExample1>
     <WordsExample2>しなやかにおどる。</WordsExample2>
     <WordsExample3>しなやかな竹。</WordsExample3>
@@ -2357,7 +2357,7 @@
   <array>
     <WordsListIndex>214</WordsListIndex>
     <WordsText>支配（しはい）</WordsText>
-    <WordsMean>［名・－する］①全体を思うように動かすこと。[BR]②人をさしずすること。取りしまること。</WordsMean>
+    <WordsMean>［名・－する］①全体を思うように動かすこと。②人をさしずすること。取りしまること。</WordsMean>
     <WordsExample1>天下を支配する。米のできぐあいは、天候に支配されることが多い。</WordsExample1>
     <WordsExample2/>
     <WordsExample3/>
@@ -2390,7 +2390,7 @@
   <array>
     <WordsListIndex>217</WordsListIndex>
     <WordsText>占める（しめる）</WordsText>
-    <WordsMean>［動］①ある場所を自分のものにする。[BR]②全体の中で、あるわりあいをもつ。</WordsMean>
+    <WordsMean>［動］①ある場所を自分のものにする。②全体の中で、あるわりあいをもつ。</WordsMean>
     <WordsExample1>いちばん前に席を占める。</WordsExample1>
     <WordsExample2>賛成する人が過半数を占める。</WordsExample2>
     <WordsExample3/>
@@ -2412,7 +2412,7 @@
   <array>
     <WordsListIndex>219</WordsListIndex>
     <WordsText>周囲（しゅうい）</WordsText>
-    <WordsMean>［名］①まわり。[BR]②人をとりまいているすべてのもの。かんきょう。</WordsMean>
+    <WordsMean>［名］①まわり。②人をとりまいているすべてのもの。かんきょう。</WordsMean>
     <WordsExample1>池の周囲。</WordsExample1>
     <WordsExample2>周囲に気がねする。</WordsExample2>
     <WordsExample3/>
@@ -2423,7 +2423,7 @@
   <array>
     <WordsListIndex>220</WordsListIndex>
     <WordsText>収穫（しゅうかく）</WordsText>
-    <WordsMean>［名・－する］①作物を取り入れること。[BR]②物ごとをしてえられたよい結果。</WordsMean>
+    <WordsMean>［名・－する］①作物を取り入れること。②物ごとをしてえられたよい結果。</WordsMean>
     <WordsExample1>台風が近づいたので、いねの収穫を急ぐ。</WordsExample1>
     <WordsExample2>きょうのハイキングの収穫は大ぜいの人と友だちになれたことです。</WordsExample2>
     <WordsExample3/>
@@ -2434,7 +2434,7 @@
   <array>
     <WordsListIndex>221</WordsListIndex>
     <WordsText>習慣（しゅうかん）</WordsText>
-    <WordsMean>［名］①古くから行われている決まったやり方。しきたり。＜似たことば＞慣習・慣例。[BR]②いつもするようになったこと。くせ。</WordsMean>
+    <WordsMean>［名］①古くから行われている決まったやり方。しきたり。＜似たことば＞慣習・慣例。②いつもするようになったこと。くせ。</WordsMean>
     <WordsExample1>日本には、人に会ったときにおじぎをする習慣がある。</WordsExample1>
     <WordsExample2>毎朝犬と散歩するのが習慣です。</WordsExample2>
     <WordsExample3/>
@@ -2544,7 +2544,7 @@
   <array>
     <WordsListIndex>231</WordsListIndex>
     <WordsText>純粋（じゅんすい）</WordsText>
-    <WordsMean>［名・形動］①まじりけがないようす。[BR]②悪い心や欲がないこと。</WordsMean>
+    <WordsMean>［名・形動］①まじりけがないようす。②悪い心や欲がないこと。</WordsMean>
     <WordsExample1>純粋な水。</WordsExample1>
     <WordsExample2>純粋な気持ち。</WordsExample2>
     <WordsExample3/>
@@ -2566,7 +2566,7 @@
   <array>
     <WordsListIndex>233</WordsListIndex>
     <WordsText>消化（しょうか）</WordsText>
-    <WordsMean>［名・－する］①食べたものを、からだに必要な養分にかえて取り入れること。こなすこと。[BR]②見たり聞いたりしたものを、じゅうぶん理解して自分のものにすること。[BR]③物ごとや仕事をかたづけること。</WordsMean>
+    <WordsMean>［名・－する］①食べたものを、からだに必要な養分にかえて取り入れること。こなすこと。②見たり聞いたりしたものを、じゅうぶん理解して自分のものにすること。③物ごとや仕事をかたづけること。</WordsMean>
     <WordsExample1>消化のよい食べ物。</WordsExample1>
     <WordsExample2>本の内容を消化する。</WordsExample2>
     <WordsExample3>スケジュールを消化する。</WordsExample3>
@@ -2709,7 +2709,7 @@
   <array>
     <WordsListIndex>246</WordsListIndex>
     <WordsText>深刻（しんこく）</WordsText>
-    <WordsMean>［形動］①ことがらがさしせまって重大なようす。[BR]②深く思いつめるようす。</WordsMean>
+    <WordsMean>［形動］①ことがらがさしせまって重大なようす。②深く思いつめるようす。</WordsMean>
     <WordsExample1>空気のよごれは都市の深刻な問題です。</WordsExample1>
     <WordsExample2>深刻な顔をしてなやむ。</WordsExample2>
     <WordsExample3/>
@@ -2731,7 +2731,7 @@
   <array>
     <WordsListIndex>248</WordsListIndex>
     <WordsText>侵入（しんにゅう）</WordsText>
-    <WordsMean>［名・－する］①人の家などにむりやり入りこむこと。[BR]②ほかの国などにせめ入ること。</WordsMean>
+    <WordsMean>［名・－する］①人の家などにむりやり入りこむこと。②ほかの国などにせめ入ること。</WordsMean>
     <WordsExample1>どろぼうが侵入した。</WordsExample1>
     <WordsExample2>敵軍が侵入してきた。</WordsExample2>
     <WordsExample3/>
@@ -2753,7 +2753,7 @@
   <array>
     <WordsListIndex>250</WordsListIndex>
     <WordsText>信用（しんよう）</WordsText>
-    <WordsMean>［名・－する］①しんじること。うたがいないと思うこと。[BR]②まちがいがないとしんじられていること。評判がよいこと。</WordsMean>
+    <WordsMean>［名・－する］①しんじること。うたがいないと思うこと。②まちがいがないとしんじられていること。評判がよいこと。</WordsMean>
     <WordsExample1>あの人の話なら信用できる。</WordsExample1>
     <WordsExample2>信用のある店。</WordsExample2>
     <WordsExample3/>
@@ -2863,7 +2863,7 @@
   <array>
     <WordsListIndex>260</WordsListIndex>
     <WordsText>精神（せいしん）</WordsText>
-    <WordsMean>［名］①心。たましい。⇔肉体。[BR]②気力。根気。[BR]③もとになるだいじな考え。</WordsMean>
+    <WordsMean>［名］①心。たましい。⇔肉体。②気力。根気。③もとになるだいじな考え。</WordsMean>
     <WordsExample1>精神修養。</WordsExample1>
     <WordsExample2>精神をかたむけて仕事をする。</WordsExample2>
     <WordsExample3>憲法の精神。</WordsExample3>
@@ -3006,7 +3006,7 @@
   <array>
     <WordsListIndex>273</WordsListIndex>
     <WordsText>迫る（せまる）</WordsText>
-    <WordsMean>［動］①せまくなる。[BR]②近くなる。[BR]③苦しくなる。[BR]④強くもとめる。</WordsMean>
+    <WordsMean>［動］①せまくなる。②近くなる。③苦しくなる。④強くもとめる。</WordsMean>
     <WordsExample1>きょりが迫る。</WordsExample1>
     <WordsExample2>きけんが迫る。</WordsExample2>
     <WordsExample3>胸が迫る思い。</WordsExample3>
@@ -3094,7 +3094,7 @@
   <array>
     <WordsListIndex>281</WordsListIndex>
     <WordsText>注ぐ（そそぐ）</WordsText>
-    <WordsMean>［動］①流れて入る。[BR]②（雨などが）ふる。[BR]③こぼす。落とす。[BR]④流し入れる。かける。[BR]⑤集中する。そのほうへ向ける。</WordsMean>
+    <WordsMean>［動］①流れて入る。②（雨などが）ふる。③こぼす。落とす。④流し入れる。かける。⑤集中する。そのほうへ向ける。</WordsMean>
     <WordsExample1>[ruby][rb]信濃[/rb][rt]しなの[/rt][/ruby]川は日本海に注ぐ。</WordsExample1>
     <WordsExample2>[ruby][rb]小[/rb][rt]こ[/rt][/ruby][ruby][rb]雨[/rb][rt]さめ[/rt][/ruby]がふり注ぐ。</WordsExample2>
     <WordsExample3>悲しいニュースになみだを注ぐ。</WordsExample3>
@@ -3116,7 +3116,7 @@
   <array>
     <WordsListIndex>283</WordsListIndex>
     <WordsText>素朴（そぼく）</WordsText>
-    <WordsMean>［名・形動］①かざりけがなく、ありのままなようす。自然のままのようす。[BR]②考え方などが単純であるようす。</WordsMean>
+    <WordsMean>［名・形動］①かざりけがなく、ありのままなようす。自然のままのようす。②考え方などが単純であるようす。</WordsMean>
     <WordsExample1>素朴な人がら。</WordsExample1>
     <WordsExample2>素朴な疑問をもつ。</WordsExample2>
     <WordsExample3/>
@@ -3127,7 +3127,7 @@
   <array>
     <WordsListIndex>284</WordsListIndex>
     <WordsText>染める（そめる）</WordsText>
-    <WordsMean>［動］①色をつける。[BR]②はずかしくて顔を赤くする。[BR]③（「手を染める」の形で）ある事をしはじめる。</WordsMean>
+    <WordsMean>［動］①色をつける。②はずかしくて顔を赤くする。③（「手を染める」の形で）ある事をしはじめる。</WordsMean>
     <WordsExample1>髪を染める。</WordsExample1>
     <WordsExample2>ほおを染める。</WordsExample2>
     <WordsExample3>新しい事業に手を染める。</WordsExample3>
@@ -3138,7 +3138,7 @@
   <array>
     <WordsListIndex>285</WordsListIndex>
     <WordsText>そもそも</WordsText>
-    <WordsMean>＜品詞①＞［名・副］はじめ。はじめから。もともと。[BR]＜品詞②＞［接続］ものを言い出すとき、はじめにつけることば。いったい。さて。</WordsMean>
+    <WordsMean>＜品詞①＞［名・副］はじめ。はじめから。もともと。＜品詞②＞［接続］ものを言い出すとき、はじめにつけることば。いったい。さて。</WordsMean>
     <WordsExample1>約束をやぶったきみがそもそも悪い。</WordsExample1>
     <WordsExample2>そもそも昔は水道というものがなかった。</WordsExample2>
     <WordsExample3/>
@@ -3149,7 +3149,7 @@
   <array>
     <WordsListIndex>286</WordsListIndex>
     <WordsText>それる</WordsText>
-    <WordsMean>［動］①中心になるものから、はずれる。はなれる。[BR]②べつのほうへ行く。</WordsMean>
+    <WordsMean>［動］①中心になるものから、はずれる。はなれる。②べつのほうへ行く。</WordsMean>
     <WordsExample1>ボールがそれる。話が横道にそれる。</WordsExample1>
     <WordsExample2>台風の進路がそれる。</WordsExample2>
     <WordsExample3/>
@@ -3215,7 +3215,7 @@
   <array>
     <WordsListIndex>292</WordsListIndex>
     <WordsText>たどる</WordsText>
-    <WordsMean>［動］①たずねさがす。さがしながら行く。[BR]②すじ道を追ってたずねもとめる。[BR]③道や川などにそって進む。[BR]④ある方向へ進む。</WordsMean>
+    <WordsMean>［動］①たずねさがす。さがしながら行く。②すじ道を追ってたずねもとめる。③道や川などにそって進む。④ある方向へ進む。</WordsMean>
     <WordsExample1>番地をたどって行く。</WordsExample1>
     <WordsExample2>記[ruby][rb]憶[/rb][rt]おく[/rt][/ruby]をたどって話す。</WordsExample2>
     <WordsExample3>山道をたどる。</WordsExample3>
@@ -3248,7 +3248,7 @@
   <array>
     <WordsListIndex>295</WordsListIndex>
     <WordsText>保つ（たもつ）</WordsText>
-    <WordsMean>［動］①ある状態を長くつづける。[BR]②よい状態をもちつづける。</WordsMean>
+    <WordsMean>［動］①ある状態を長くつづける。②よい状態をもちつづける。</WordsMean>
     <WordsExample1>水温を一定に保つ。</WordsExample1>
     <WordsExample2>健康を保つ。</WordsExample2>
     <WordsExample3/>
@@ -3281,7 +3281,7 @@
   <array>
     <WordsListIndex>298</WordsListIndex>
     <WordsText>地位（ちい）</WordsText>
-    <WordsMean>［名］①くらい。身分。[BR]②いどころ。立場。</WordsMean>
+    <WordsMean>［名］①くらい。身分。②いどころ。立場。</WordsMean>
     <WordsExample1>自動車産業は日本の産業の中で大きな地位をしめている。</WordsExample1>
     <WordsExample2/>
     <WordsExample3/>
@@ -3292,7 +3292,7 @@
   <array>
     <WordsListIndex>299</WordsListIndex>
     <WordsText>縮む（ちぢむ）</WordsText>
-    <WordsMean>［動］①短くなる。小さくなる。せまくなる。⇔のびる。[BR]②しわがよる。⇔のびる。[BR]③おそろしさやはずかしさなどでからだや気持ちが小さくなる。③は「ちぢまる」ともいう。</WordsMean>
+    <WordsMean>［動］①短くなる。小さくなる。せまくなる。⇔のびる。②しわがよる。⇔のびる。③おそろしさやはずかしさなどでからだや気持ちが小さくなる。③は「ちぢまる」ともいう。</WordsMean>
     <WordsExample1>ゴムはのびたり縮んだりする。</WordsExample1>
     <WordsExample2>しもで野菜の葉が縮む。</WordsExample2>
     <WordsExample3>身の縮む思い。</WordsExample3>
@@ -3369,7 +3369,7 @@
   <array>
     <WordsListIndex>306</WordsListIndex>
     <WordsText>直撃（ちょくげき）</WordsText>
-    <WordsMean>［名・－する］①[ruby][rb]爆[/rb][rt]ばく[/rt][/ruby][ruby][rb]弾[/rb][rt]だん[/rt][/ruby]などがまともに当たること。[BR]②台風などが直接おそいかかること。</WordsMean>
+    <WordsMean>［名・－する］①[ruby][rb]爆[/rb][rt]ばく[/rt][/ruby][ruby][rb]弾[/rb][rt]だん[/rt][/ruby]などがまともに当たること。②台風などが直接おそいかかること。</WordsMean>
     <WordsExample1>台風が本土を直撃する。</WordsExample1>
     <WordsExample2/>
     <WordsExample3/>
@@ -3402,7 +3402,7 @@
   <array>
     <WordsListIndex>309</WordsListIndex>
     <WordsText>追放（ついほう）</WordsText>
-    <WordsMean>［名・－する］①追いはらうこと。[BR]②ある地位やおおやけの仕事についている人をやめさせること。</WordsMean>
+    <WordsMean>［名・－する］①追いはらうこと。②ある地位やおおやけの仕事についている人をやめさせること。</WordsMean>
     <WordsExample1>ぼうりょくを追放する。</WordsExample1>
     <WordsExample2>公職から追放する。</WordsExample2>
     <WordsExample3/>
@@ -3435,7 +3435,7 @@
   <array>
     <WordsListIndex>312</WordsListIndex>
     <WordsText>尽くす（つくす）</WordsText>
-    <WordsMean>［動］①あるだけのものを全部出す。[BR]②人のためにほねをおる。[BR]③じゅうぶんにあらわす。[BR]④（ほかのことばのあとについて）すっかり…してしまう。</WordsMean>
+    <WordsMean>［動］①あるだけのものを全部出す。②人のためにほねをおる。③じゅうぶんにあらわす。④（ほかのことばのあとについて）すっかり…してしまう。</WordsMean>
     <WordsExample1>全力を尽くしてたたかう。</WordsExample1>
     <WordsExample2>みんなのために尽くす。</WordsExample2>
     <WordsExample3>ことばを尽くして説得する。</WordsExample3>
@@ -3490,7 +3490,7 @@
   <array>
     <WordsListIndex>317</WordsListIndex>
     <WordsText>手がかり（てがかり）</WordsText>
-    <WordsMean>［名］①手をかける所。[BR]②いとぐち。きっかけ。</WordsMean>
+    <WordsMean>［名］①手をかける所。②いとぐち。きっかけ。</WordsMean>
     <WordsExample1>事件解決の手がかりをつかむ。</WordsExample1>
     <WordsExample2/>
     <WordsExample3/>
@@ -3523,7 +3523,7 @@
   <array>
     <WordsListIndex>320</WordsListIndex>
     <WordsText>的中（てきちゅう）</WordsText>
-    <WordsMean>［名・－する］①矢や[ruby][rb]弾[/rb][rt]たま[/rt][/ruby]がまとに当たること。＜似たことば＞命中。[BR]②ぴたりと当たること。②は「適中」とも書く。</WordsMean>
+    <WordsMean>［名・－する］①矢や[ruby][rb]弾[/rb][rt]たま[/rt][/ruby]がまとに当たること。＜似たことば＞命中。②ぴたりと当たること。②は「適中」とも書く。</WordsMean>
     <WordsExample1>予想がみごとに的中した。</WordsExample1>
     <WordsExample2/>
     <WordsExample3/>
@@ -3534,7 +3534,7 @@
   <array>
     <WordsListIndex>321</WordsListIndex>
     <WordsText>適当（てきとう）</WordsText>
-    <WordsMean>［形動］①ちょうどよいようす。ほどよいようす。[BR]②いいかげんなようす。</WordsMean>
+    <WordsMean>［形動］①ちょうどよいようす。ほどよいようす。②いいかげんなようす。</WordsMean>
     <WordsExample1>4年生に適当な問題。</WordsExample1>
     <WordsExample2>よくわからなかったので、適当に答えておいた。</WordsExample2>
     <WordsExample3/>
@@ -3567,7 +3567,7 @@
   <array>
     <WordsListIndex>324</WordsListIndex>
     <WordsText>手ごたえ（てごたえ）</WordsText>
-    <WordsMean>［名］①手に受ける感じ。[BR]②はんのう。はり合い。</WordsMean>
+    <WordsMean>［名］①手に受ける感じ。②はんのう。はり合い。</WordsMean>
     <WordsExample1>手ごたえがあったと思ったら、大きな魚がかかっていた。</WordsExample1>
     <WordsExample2>弟はいくらしかっても手ごたえがない。</WordsExample2>
     <WordsExample3/>
@@ -3578,7 +3578,7 @@
   <array>
     <WordsListIndex>325</WordsListIndex>
     <WordsText>手頃（てごろ）</WordsText>
-    <WordsMean>［名・形動］①手に持つのにちょうどよい大きさであること。[BR]②自分の力にちょうどよく合うこと。</WordsMean>
+    <WordsMean>［名・形動］①手に持つのにちょうどよい大きさであること。②自分の力にちょうどよく合うこと。</WordsMean>
     <WordsExample1>手ごろな大きさのハンドバッグ。</WordsExample1>
     <WordsExample2>手ごろなねだん。</WordsExample2>
     <WordsExample3/>
@@ -3589,7 +3589,7 @@
   <array>
     <WordsListIndex>326</WordsListIndex>
     <WordsText>手間（てま）</WordsText>
-    <WordsMean>［名］①ある仕事をするのにかかる時間やほねおり。[BR]②やりとげた仕事に対してはらうお金。手間ちん。</WordsMean>
+    <WordsMean>［名］①ある仕事をするのにかかる時間やほねおり。②やりとげた仕事に対してはらうお金。手間ちん。</WordsMean>
     <WordsExample1>手間のかかる仕事。</WordsExample1>
     <WordsExample2>手間をはらう。</WordsExample2>
     <WordsExample3/>
@@ -3655,7 +3655,7 @@
   <array>
     <WordsListIndex>332</WordsListIndex>
     <WordsText>同意（どうい）</WordsText>
-    <WordsMean>＜品詞①＞［名］同じ意味。[BR]＜品詞②＞［名・－する］[ruby][rb]賛[/rb][rt]さん[/rt][/ruby]成すること。</WordsMean>
+    <WordsMean>＜品詞①＞［名］同じ意味。＜品詞②＞［名・－する］[ruby][rb]賛[/rb][rt]さん[/rt][/ruby]成すること。</WordsMean>
     <WordsExample1>辞書と辞典は同意のことばです。</WordsExample1>
     <WordsExample2>かれはわたしの考えに同意した。</WordsExample2>
     <WordsExample3/>
@@ -3688,7 +3688,7 @@
   <array>
     <WordsListIndex>335</WordsListIndex>
     <WordsText>解く（とく）</WordsText>
-    <WordsMean>［動］①答えを出す。はっきりさせる。[BR]②ほどく。[BR]③役目や仕事をやめさせる。</WordsMean>
+    <WordsMean>［動］①答えを出す。はっきりさせる。②ほどく。③役目や仕事をやめさせる。</WordsMean>
     <WordsExample1>問題を解く。誤解を解く。</WordsExample1>
     <WordsExample2>荷物のひもを解く。</WordsExample2>
     <WordsExample3>任を解く。</WordsExample3>
@@ -3732,7 +3732,7 @@
   <array>
     <WordsListIndex>339</WordsListIndex>
     <WordsText>届ける（とどける）</WordsText>
-    <WordsMean>［動］①送る。持っていって相手にわたす。[BR]②役所や上役などに申し出る。</WordsMean>
+    <WordsMean>［動］①送る。持っていって相手にわたす。②役所や上役などに申し出る。</WordsMean>
     <WordsExample1>品物を届ける。</WordsExample1>
     <WordsExample2>警察に届ける。</WordsExample2>
     <WordsExample3/>
@@ -3743,7 +3743,7 @@
   <array>
     <WordsListIndex>340</WordsListIndex>
     <WordsText>整える（ととのえる）</WordsText>
-    <WordsMean>［動］①みだれたところがないよう、きちんとする。[BR]②調子をよくする。</WordsMean>
+    <WordsMean>［動］①みだれたところがないよう、きちんとする。②調子をよくする。</WordsMean>
     <WordsExample1>へやを整える。</WordsExample1>
     <WordsExample2>コンディションを整える。</WordsExample2>
     <WordsExample3/>
@@ -3754,7 +3754,7 @@
   <array>
     <WordsListIndex>341</WordsListIndex>
     <WordsText>唱える（となえる）</WordsText>
-    <WordsMean>［動］①大きな声で言う。さけぶ。[BR]②ふしをつけて、歌うように言う。[BR]③意見や考えなどを先に言い出す。</WordsMean>
+    <WordsMean>［動］①大きな声で言う。さけぶ。②ふしをつけて、歌うように言う。③意見や考えなどを先に言い出す。</WordsMean>
     <WordsExample1>「ばんざい」を唱える。</WordsExample1>
     <WordsExample2>お経を唱える。</WordsExample2>
     <WordsExample3>新説を唱える。</WordsExample3>
@@ -3798,7 +3798,7 @@
   <array>
     <WordsListIndex>345</WordsListIndex>
     <WordsText>なだらか</WordsText>
-    <WordsMean>［形動］①かたむきがゆるやかなようす。[BR]②すらすらと進むようす。</WordsMean>
+    <WordsMean>［形動］①かたむきがゆるやかなようす。②すらすらと進むようす。</WordsMean>
     <WordsExample1>なだらかな山。</WordsExample1>
     <WordsExample2>会議がなだらかに進行する。</WordsExample2>
     <WordsExample3/>
@@ -3842,7 +3842,7 @@
   <array>
     <WordsListIndex>349</WordsListIndex>
     <WordsText>慣れる（なれる）</WordsText>
-    <WordsMean>［動］①あたりまえのことになる。習慣になる。[BR]②なんどもやってうまくなる。</WordsMean>
+    <WordsMean>［動］①あたりまえのことになる。習慣になる。②なんどもやってうまくなる。</WordsMean>
     <WordsExample1>寒さに慣れる。</WordsExample1>
     <WordsExample2>慣れた手つきで操縦する。</WordsExample2>
     <WordsExample3/>
@@ -3864,7 +3864,7 @@
   <array>
     <WordsListIndex>351</WordsListIndex>
     <WordsText>入門（にゅうもん）</WordsText>
-    <WordsMean>＜品詞①＞［名・－する］先生のもとに弟子入りすること。[BR]＜品詞②＞［名］はじめて勉強する人のための手引きとなるもの。</WordsMean>
+    <WordsMean>＜品詞①＞［名・－する］先生のもとに弟子入りすること。＜品詞②＞［名］はじめて勉強する人のための手引きとなるもの。</WordsMean>
     <WordsExample1>入門講座。</WordsExample1>
     <WordsExample2/>
     <WordsExample3/>
@@ -3963,7 +3963,7 @@
   <array>
     <WordsListIndex>360</WordsListIndex>
     <WordsText>把握（はあく）</WordsText>
-    <WordsMean>［名・－する］①しっかりつかむこと。[BR]②内容などを正しく理解すること。</WordsMean>
+    <WordsMean>［名・－する］①しっかりつかむこと。②内容などを正しく理解すること。</WordsMean>
     <WordsExample1>生徒の心を把握する。</WordsExample1>
     <WordsExample2>状況を把握する。</WordsExample2>
     <WordsExample3/>
@@ -4007,7 +4007,7 @@
   <array>
     <WordsListIndex>364</WordsListIndex>
     <WordsText>外れ（はずれ）</WordsText>
-    <WordsMean>［名］①当たらないこと。はずれること。⇔当たり。[BR]②はし。</WordsMean>
+    <WordsMean>［名］①当たらないこと。はずれること。⇔当たり。②はし。</WordsMean>
     <WordsExample1>外れくじ。まと外れな答え。</WordsExample1>
     <WordsExample2>村の外れ。</WordsExample2>
     <WordsExample3/>
@@ -4018,7 +4018,7 @@
   <array>
     <WordsListIndex>365</WordsListIndex>
     <WordsText>果たす（はたす）</WordsText>
-    <WordsMean>［動］①最後まできちんとやる。やりとおす。[BR]②（動作をあらわすことばのあとについて）すっかり…しつくす。</WordsMean>
+    <WordsMean>［動］①最後まできちんとやる。やりとおす。②（動作をあらわすことばのあとについて）すっかり…しつくす。</WordsMean>
     <WordsExample1>友だちとの約束を果たす。</WordsExample1>
     <WordsExample2>お金を使い果たす。</WordsExample2>
     <WordsExample3/>
@@ -4040,7 +4040,7 @@
   <array>
     <WordsListIndex>367</WordsListIndex>
     <WordsText>発生（はっせい）</WordsText>
-    <WordsMean>［名・－する］①物ごとが起こること。[BR]②生まれること。</WordsMean>
+    <WordsMean>［名・－する］①物ごとが起こること。②生まれること。</WordsMean>
     <WordsExample1>事件が発生する。</WordsExample1>
     <WordsExample2>[ruby][rb]蚊[/rb][rt]か[/rt][/ruby]はたまり水に発生する。</WordsExample2>
     <WordsExample3/>
@@ -4051,7 +4051,7 @@
   <array>
     <WordsListIndex>368</WordsListIndex>
     <WordsText>発想（はっそう）</WordsText>
-    <WordsMean>［名］①思いつき。アイデア。[BR]②考え方の傾向。また、考えや気持ちを作品などであらわすこと。</WordsMean>
+    <WordsMean>［名］①思いつき。アイデア。②考え方の傾向。また、考えや気持ちを作品などであらわすこと。</WordsMean>
     <WordsExample1>きばつな発想。</WordsExample1>
     <WordsExample2>日本人的な発想。</WordsExample2>
     <WordsExample3/>
@@ -4062,7 +4062,7 @@
   <array>
     <WordsListIndex>369</WordsListIndex>
     <WordsText>発達（はったつ）</WordsText>
-    <WordsMean>［名・－する］①成長して、完全な形やすぐれたはたらきをもつようになること。[BR]②さかんになること。進歩すること。</WordsMean>
+    <WordsMean>［名・－する］①成長して、完全な形やすぐれたはたらきをもつようになること。②さかんになること。進歩すること。</WordsMean>
     <WordsExample1>うさぎはあと足がよく発達している。</WordsExample1>
     <WordsExample2>文明が発達する。発達した低気圧。</WordsExample2>
     <WordsExample3/>
@@ -4095,7 +4095,7 @@
   <array>
     <WordsListIndex>372</WordsListIndex>
     <WordsText>省く（はぶく）</WordsText>
-    <WordsMean>［動］①取りのぞく。[BR]②へらす。かんたんにする。</WordsMean>
+    <WordsMean>［動］①取りのぞく。②へらす。かんたんにする。</WordsMean>
     <WordsExample1>むだを省く。</WordsExample1>
     <WordsExample2>くわしい説明を省く。</WordsExample2>
     <WordsExample3/>
@@ -4150,7 +4150,7 @@
   <array>
     <WordsListIndex>377</WordsListIndex>
     <WordsText>万能（ばんのう）</WordsText>
-    <WordsMean>［名］①なんでもできること。[BR]②なんにでもよくきくこと。</WordsMean>
+    <WordsMean>［名］①なんでもできること。②なんにでもよくきくこと。</WordsMean>
     <WordsExample1>かれはスポーツ万能だ。</WordsExample1>
     <WordsExample2>万能薬。</WordsExample2>
     <WordsExample3/>
@@ -4249,7 +4249,7 @@
   <array>
     <WordsListIndex>386</WordsListIndex>
     <WordsText>見返す（みかえす）</WordsText>
-    <WordsMean>［動］①うしろをふり返る。[BR]②いちど見たものを見なおす。[BR]③自分を見た相手をこちらからも見る。[BR]④以前にばかにされた仕返しに、りっぱになったすがたを見せつける。</WordsMean>
+    <WordsMean>［動］①うしろをふり返る。②いちど見たものを見なおす。③自分を見た相手をこちらからも見る。④以前にばかにされた仕返しに、りっぱになったすがたを見せつける。</WordsMean>
     <WordsExample1>少し歩いては見返す。</WordsExample1>
     <WordsExample2>テスト用紙をなん回も見返す。</WordsExample2>
     <WordsExample3>にらまれたので、ぼくも見返してやった。</WordsExample3>
@@ -4271,7 +4271,7 @@
   <array>
     <WordsListIndex>388</WordsListIndex>
     <WordsText>未熟（みじゅく）</WordsText>
-    <WordsMean>［名・形動］①くだものなどがまだ[ruby][rb]熟[/rb][rt]じゅく[/rt][/ruby]さないこと。[BR]②学問やわざなどがまだじゅうぶんでないこと。</WordsMean>
+    <WordsMean>［名・形動］①くだものなどがまだ[ruby][rb]熟[/rb][rt]じゅく[/rt][/ruby]さないこと。②学問やわざなどがまだじゅうぶんでないこと。</WordsMean>
     <WordsExample1>ことしはまだりんごが未熟だ。</WordsExample1>
     <WordsExample2>未熟者ですが、よろしくおねがいします。</WordsExample2>
     <WordsExample3/>
@@ -4282,7 +4282,7 @@
   <array>
     <WordsListIndex>389</WordsListIndex>
     <WordsText>見損なう（みそこなう）</WordsText>
-    <WordsMean>［動］①うっかり見ないでしまう。見落とす。[BR]②まちがって見る。まちがった見方をする。</WordsMean>
+    <WordsMean>［動］①うっかり見ないでしまう。見落とす。②まちがって見る。まちがった見方をする。</WordsMean>
     <WordsExample1>いそがしくて、テレビのニュースを見損なった。</WordsExample1>
     <WordsExample2>やくそくをやぶるなんて、きみを見損なったよ。</WordsExample2>
     <WordsExample3/>
@@ -4359,7 +4359,7 @@
   <array>
     <WordsListIndex>396</WordsListIndex>
     <WordsText>目がない（めがない）</WordsText>
-    <WordsMean>①物ごとを見分ける力がない。[BR]②とてもすきである。</WordsMean>
+    <WordsMean>①物ごとを見分ける力がない。②とてもすきである。</WordsMean>
     <WordsExample1>人を見る目がない。</WordsExample1>
     <WordsExample2>あまいものには目がない。</WordsExample2>
     <WordsExample3/>
@@ -4370,7 +4370,7 @@
   <array>
     <WordsListIndex>397</WordsListIndex>
     <WordsText>目を白黒させる（めをしろくろさせる）</WordsText>
-    <WordsMean>①苦しんで目玉をせわしなく動かす。[BR]②たいへんおどろいてあわてる。</WordsMean>
+    <WordsMean>①苦しんで目玉をせわしなく動かす。②たいへんおどろいてあわてる。</WordsMean>
     <WordsExample1>予想外のできごとに、みんな目を白黒させた。</WordsExample1>
     <WordsExample2/>
     <WordsExample3/>
@@ -4403,7 +4403,7 @@
   <array>
     <WordsListIndex>400</WordsListIndex>
     <WordsText>用いる（もちいる）</WordsText>
-    <WordsMean>［動］①使う。役に立たせる。[BR]②仕事につかせる。はたらかせる。[BR]③取りあげる。採用する。</WordsMean>
+    <WordsMean>［動］①使う。役に立たせる。②仕事につかせる。はたらかせる。③取りあげる。採用する。</WordsMean>
     <WordsExample1>竹を用いた工芸品。</WordsExample1>
     <WordsExample2>重く用いる。</WordsExample2>
     <WordsExample3>わたしの意見が用いられた。</WordsExample3>
@@ -4436,7 +4436,7 @@
   <array>
     <WordsListIndex>403</WordsListIndex>
     <WordsText>もろい</WordsText>
-    <WordsMean>［形容］①こわれやすい。くずれやすい。[BR]②気持ちが動かされやすい。⇔かたい（堅い）。[BR]③持ちこたえる力が弱い。</WordsMean>
+    <WordsMean>［形容］①こわれやすい。くずれやすい。②気持ちが動かされやすい。⇔かたい（堅い）。③持ちこたえる力が弱い。</WordsMean>
     <WordsExample1>もろい材質。</WordsExample1>
     <WordsExample2>情にもろい。</WordsExample2>
     <WordsExample3>もろくも敗れる。</WordsExample3>
@@ -4447,7 +4447,7 @@
   <array>
     <WordsListIndex>404</WordsListIndex>
     <WordsText>訳す（やくす）</WordsText>
-    <WordsMean>［動］①ある国のことばを、ほかの国のことばに直す。ほんやくする。[BR]②むずかしい文やことばを、やさしいことばに直す。[BR]②は「やくする」ともいう。</WordsMean>
+    <WordsMean>［動］①ある国のことばを、ほかの国のことばに直す。ほんやくする。②むずかしい文やことばを、やさしいことばに直す。②は「やくする」ともいう。</WordsMean>
     <WordsExample1>「源氏物語」は英語に訳されている。</WordsExample1>
     <WordsExample2>古文を現代語に訳す。</WordsExample2>
     <WordsExample3/>
@@ -4469,7 +4469,7 @@
   <array>
     <WordsListIndex>406</WordsListIndex>
     <WordsText>山積み（やまづみ）</WordsText>
-    <WordsMean>［名・－する］①山のように高く積み上げられていること。[BR]②解決すべきことがたくさんたまっていること。</WordsMean>
+    <WordsMean>［名・－する］①山のように高く積み上げられていること。②解決すべきことがたくさんたまっていること。</WordsMean>
     <WordsExample1>山積みの商品。</WordsExample1>
     <WordsExample2>むずかしい問題が山積みだ。</WordsExample2>
     <WordsExample3/>
@@ -4623,7 +4623,7 @@
   <array>
     <WordsListIndex>420</WordsListIndex>
     <WordsText>略す（りゃくす）</WordsText>
-    <WordsMean>［動］①短くかんたんにする。[BR]②とりのぞく。はぶく。②は「りゃくする」ともいう。</WordsMean>
+    <WordsMean>［動］①短くかんたんにする。②とりのぞく。はぶく。②は「りゃくする」ともいう。</WordsMean>
     <WordsExample1>漢字を略して書く。</WordsExample1>
     <WordsExample2>細かい説明は略します。</WordsExample2>
     <WordsExample3/>
@@ -4634,7 +4634,7 @@
   <array>
     <WordsListIndex>421</WordsListIndex>
     <WordsText>臨時（りんじ）</WordsText>
-    <WordsMean>［名］①日時などが決まっていないで、必要なときに行うこと。⇔定期。[BR]②そのときだけのこと。一時のまに合わせ。</WordsMean>
+    <WordsMean>［名］①日時などが決まっていないで、必要なときに行うこと。⇔定期。②そのときだけのこと。一時のまに合わせ。</WordsMean>
     <WordsExample1>臨時ニュース。</WordsExample1>
     <WordsExample2>夏のあいだだけ、臨時に人をやとう。</WordsExample2>
     <WordsExample3/>
